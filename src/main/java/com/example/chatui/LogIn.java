@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import database.repository.UserRepository;
 
 import java.io.IOException;
 
@@ -32,20 +33,28 @@ public class LogIn {
 
     private void checkLogin() throws IOException {
         Main m = new Main();
-        if (username.getText().toString().equals("user") && password.getText().toString().equals("user")){
+
+        String login = username.getText();
+        String pass = password.getText();
+
+        if (new UserRepository().checkIfUserWithCredentialsExists(login, pass)) {
             m.changeScene("start_page.fxml");
         }
-        if(!username.getText().toString().equals("user")){
-            xmarkLogin.setOpacity(1.0);
-        }
-        if(username.getText().toString().equals("user")){
-            xmarkLogin.setOpacity(0.0);
-        }
-        if(password.getText().toString().equals("user")){
-            xmarkPassword.setOpacity(0.0);
-        }
-        if(!password.getText().toString().equals("user")){
-            xmarkPassword.setOpacity(1.0);
-        }
+
+//        if (username.getText().toString().equals("user") && password.getText().toString().equals("user")){
+//            m.changeScene("start_page.fxml");
+//        }
+//        if(!username.getText().toString().equals("user")){
+//            xmarkLogin.setOpacity(1.0);
+//        }
+//        if(username.getText().toString().equals("user")){
+//            xmarkLogin.setOpacity(0.0);
+//        }
+//        if(password.getText().toString().equals("user")){
+//            xmarkPassword.setOpacity(0.0);
+//        }
+//        if(!password.getText().toString().equals("user")){
+//            xmarkPassword.setOpacity(1.0);
+//        }
     }
 }
