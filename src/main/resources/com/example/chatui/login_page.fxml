@@ -40,8 +40,8 @@
                   <Image url="@../../../img/user_icon%202.0.png" />
                </image>
             </ImageView>
-            <TextField fx:id="username" layoutX="127.0" layoutY="160.0" promptText="login" />
-            <PasswordField fx:id="password" layoutX="127.0" layoutY="201.0" promptText="hasło" />
+            <TextField fx:id="username" layoutX="127.0" layoutY="160.0" onKeyPressed="#pressEnter" promptText="login" />
+            <PasswordField fx:id="password" layoutX="127.0" layoutY="201.0" onKeyPressed="#pressEnter" promptText="hasło" />
             <Button fx:id="loginButton" layoutX="164.0" layoutY="272.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #2874A6;" text="Login" />
             <ImageView fitHeight="19.0" fitWidth="41.0" layoutX="286.0" layoutY="163.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" fx:id="xmarkLogin">
                <image>

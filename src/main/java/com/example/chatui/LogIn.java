@@ -2,11 +2,12 @@ package com.example.chatui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import database.repository.UserRepository;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
 
@@ -17,8 +18,6 @@ public class LogIn {
     }
 
     @FXML
-    private Button loginButton;
-    @FXML
     private TextField username;
     @FXML
     private PasswordField password;
@@ -27,8 +26,21 @@ public class LogIn {
     @FXML
     private ImageView xmarkPassword;
 
-    public void userLogin(ActionEvent event) throws IOException {
-        checkLogin();
+    @FXML
+    void pressEnter(KeyEvent event){
+        try{
+            if(event.getCode() == KeyCode.ENTER) checkLogin();
+        }catch(IOException e){
+            throw new RuntimeException(e);
+        }
+
+    }
+    public void userLogin(ActionEvent event) {
+        try{
+            checkLogin();
+        }catch(IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     private void checkLogin() throws IOException {
@@ -37,24 +49,22 @@ public class LogIn {
         String login = username.getText();
         String pass = password.getText();
 
-        if (new UserRepository().checkIfUserWithCredentialsExists(login, pass)) {
-            m.changeScene("start_page.fxml");
-        }
+        int authResult = new UserRepository().checkIfUserWithCredentialsExists(login, pass);
 
-//        if (username.getText().toString().equals("user") && password.getText().toString().equals("user")){
-//            m.changeScene("start_page.fxml");
-//        }
-//        if(!username.getText().toString().equals("user")){
-//            xmarkLogin.setOpacity(1.0);
-//        }
-//        if(username.getText().toString().equals("user")){
-//            xmarkLogin.setOpacity(0.0);
-//        }
-//        if(password.getText().toString().equals("user")){
-//            xmarkPassword.setOpacity(0.0);
-//        }
-//        if(!password.getText().toString().equals("user")){
-//            xmarkPassword.setOpacity(1.0);
-//        }
+        switch (authResult) {
+            case 0:
+                m.changeScene("start_page.fxml",1280,720);
+                break;
+            case 1:
+                xmarkLogin.setOpacity(0.0);
+                xmarkPassword.setOpacity(1.0);
+                break;
+            case 2:
+                xmarkLogin.setOpacity(1.0);
+                xmarkPassword.setOpacity(1.0);
+                break;
+            default:
+                break;
+        }
     }
 }

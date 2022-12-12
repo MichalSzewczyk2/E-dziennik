@@ -12,6 +12,8 @@ import java.util.Objects;
 public class Main extends Application {
 
     private static Stage stage;
+    private static int x;
+    private static int y;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -23,9 +25,10 @@ public class Main extends Application {
         stage.show();
     }
 
-    public void changeScene(String fxml) throws IOException {
+    public void changeScene(String fxml, int v1, int v2) throws IOException {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-        stage.getScene().setRoot(pane);
+        stage.setScene(new Scene(pane, v1, v2));
+        //stage.getScene().setRoot(pane);
     }
 
     public static void main(String[] args) {

@@ -12,14 +12,17 @@ public class UserRepository {
 
     Statement statement = new JDBCClient().getStatement();
 
-    public boolean checkIfUserWithCredentialsExists(String username, String password){
+    public int checkIfUserWithCredentialsExists(String username, String password){
         try{
-            ResultSet rs = statement.executeQuery("SELECT user_id FROM users WHERE login = '" + username +"' and password = '" + password +"'");
-            if(rs.next()) return true;
+            ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE login = '" + username +"'");
+            if(rs.next()){
+                if(rs.getString("login").equals(username) && rs.getString("password").equals(password))return 0;
+                if(rs.getString("login").equals(username) && !rs.getString("password").equals(password))return 1;
+            }
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
-        return false;
+        return 2;
     }
 
     public users getUserById(int id){
