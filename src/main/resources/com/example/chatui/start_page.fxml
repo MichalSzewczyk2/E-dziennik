@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.ExpansionPanel.CollapsedPanel?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Blend?>
@@ -25,8 +24,8 @@
                   <Image url="@../../../img/white_bell.png" />
                </image>
             </ImageView>
-            <Circle fx:id="notificationIcon" fill="RED" layoutX="1250.0" layoutY="21.0" radius="14.0" stroke="RED" strokeType="INSIDE" />
-            <Label fx:id="notificationNumber" layoutX="1244.0" layoutY="6.0" text="1" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+            <Circle fx:id="notificationIcon" fill="RED" layoutX="1250.0" layoutY="21.0" opacity="0.0" radius="14.0" stroke="RED" strokeType="INSIDE" />
+            <Label fx:id="notificationNumber" layoutX="1244.0" layoutY="6.0" opacity="0.0" text="1" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                <effect>
                   <Blend />
                </effect>
@@ -60,7 +59,7 @@
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" onAction="#goToChat" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Wyślij wiadomość" textFill="WHITE">
+            <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" onAction="#goToChat" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Czaty" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>
@@ -96,7 +95,6 @@
                   <Image url="@../../../img/student.png" />
                </image>
             </ImageView>
-            <ExpansionPanel.CollapsedPanel layoutX="37.0" layoutY="349.0" prefWidth="252" />
             <Label alignment="TOP_CENTER" contentDisplay="RIGHT" layoutY="327.0" onMouseClicked="#goToSchoolInfo" prefHeight="100.0" prefWidth="340.0" text="nazwa szkoły" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font size="30.0" />

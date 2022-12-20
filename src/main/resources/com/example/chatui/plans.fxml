@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatui.PlansControler">
+    <center>
+        <Label text="plans" BorderPane.alignment="CENTER" />
+    </center>
+    <top>
+        <Pane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #2874A6;" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" layoutX="880.0" prefHeight="80.0" prefWidth="400.0" text="Plan Zajęć" textFill="WHITE">
+                    <font>
+                        <Font name="Bookman Old Style" size="48.0" />
+                    </font>
+                </Label>
+                <Button fx:id="back" layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-blend-mode: COLOR_BURN;" text="Powrót">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+    </top>
+</BorderPane>

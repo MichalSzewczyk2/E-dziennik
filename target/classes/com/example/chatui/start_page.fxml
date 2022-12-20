@@ -19,13 +19,13 @@
                   <Font name="Bookman Old Style" size="48.0" />
                </font>
             </Label>
-            <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="1192.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="1192.0" layoutY="12.0" onMouseClicked="#seeNotification" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../img/white_bell.png" />
                </image>
             </ImageView>
-            <Circle fill="RED" layoutX="1250.0" layoutY="21.0" radius="14.0" stroke="RED" strokeType="INSIDE" />
-            <Label layoutX="1244.0" layoutY="6.0" text="1" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+            <Circle fx:id="notificationIcon" fill="RED" layoutX="1250.0" layoutY="21.0" opacity="0.0" radius="14.0" stroke="RED" strokeType="INSIDE" />
+            <Label fx:id="notificationNumber" layoutX="1244.0" layoutY="6.0" opacity="0.0" text="1" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                <effect>
                   <Blend />
                </effect>
@@ -44,17 +44,22 @@
    <left>
       <Pane prefHeight="640.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="100.0" layoutY="150.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Plan zajęć" textFill="WHITE">
+            <Button layoutX="100.0" layoutY="100.0" mnemonicParsing="false" onAction="#goToPlan" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Plan zajęć" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button layoutX="100.0" layoutY="250.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Oceny" textFill="WHITE">
+            <Button layoutX="100.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToMarks" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Oceny" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button layoutX="100.0" layoutY="350.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Nadchodzące wydarzenia" textFill="WHITE">
+            <Button layoutX="100.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToIncominEvents" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Nadchodzące wydarzenia" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" onAction="#goToChat" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Czaty" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>
@@ -63,7 +68,7 @@
       </Pane>
    </left>
    <right>
-      <Pane prefHeight="640.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="640.0" prefWidth="440.0" BorderPane.alignment="CENTER">
          <children>
             <Pane layoutY="150.0" prefHeight="70.0" prefWidth="400.0" style="-fx-background-color: B0B0B0;">
                <children>
@@ -76,10 +81,26 @@
             </Pane>
             <Pane layoutY="220.0" prefHeight="200.0" prefWidth="400.0" style="-fx-border-color: 000000; -fx-border-style: 000000; -fx-background-color: E4E4E4;">
                <children>
-                  <Label layoutX="10.0" layoutY="10.0" prefHeight="180.0" prefWidth="380.0" textAlignment="CENTER" wrapText="true" />
+                  <Label fx:id="announcement" alignment="TOP_CENTER" layoutX="10.0" prefHeight="180.0" prefWidth="380.0" text="brak ogłoszeń" textAlignment="CENTER" wrapText="true" />
                </children>
             </Pane>
          </children>
       </Pane>
    </right>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="366.0" fitWidth="400.0" layoutX="-13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/student.png" />
+               </image>
+            </ImageView>
+            <Label alignment="TOP_CENTER" contentDisplay="RIGHT" layoutY="327.0" onMouseClicked="#goToSchoolInfo" prefHeight="100.0" prefWidth="340.0" text="nazwa szkoły" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </center>
 </BorderPane>

@@ -1,18 +1,25 @@
 package database.tables;
 
-import java.sql.Date;
+import database.repository.AnnouncementsRepository;
 
-public class announcements implements DBTable {
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
+
+import static java.time.LocalDate.now;
+
+public class Announcements implements DBTable {
     private int announcements_id;
     private String title;
     private String message;
     private Date start;
     private Date end;
 
-    public announcements() {
+    public Announcements() {
     }
 
-    public announcements(int announcements_id, String title, String message, Date start, Date end) {
+    public Announcements(int announcements_id, String title, String message, Date start, Date end) {
         this.announcements_id = announcements_id;
         this.title = title;
         this.message = message;
@@ -58,6 +65,24 @@ public class announcements implements DBTable {
 
     public void setEnd(Date end) {
         this.end = end;
+    }
+
+    public Announcements getAnnouncementByActiveDate(){
+        LocalDate date =  now();
+
+        ArrayList<Announcements> an = new AnnouncementsRepository().getAnnouncementsByActiveDate(date);
+
+        Date d = an.get(0).getEnd();
+        Announcements rs = an.get(0);
+
+        for (Announcements a : an) {
+            if(a.getEnd().after(d)){
+                d = a.getEnd();
+                rs = a;
+            }
+        }
+
+        return rs;
     }
 
     @Override
