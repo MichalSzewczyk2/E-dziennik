@@ -1,12 +1,18 @@
 package com.example.chatui;
 
+import database.tables.Announcements;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 
+import java.io.IOException;
+
+
 public class StartPage {
+
+
 
     @FXML
     private Circle notificationIcon;
@@ -18,7 +24,10 @@ public class StartPage {
     private Label announcement;
 
 
-    public StartPage(){
+    @FXML
+    public void initialize(){
+        Announcements a = new Announcements().getAnnouncementByActiveDate();
+        announcement.setText(a.getMessage());
         // TODO dodać sprawdzeni czy są powiadomienia i wyświetlanie kropki
         // TODO dodać sprawdzanie i wyświetlanie ogłoszeń przy załadowaniu strony
     }
@@ -41,22 +50,42 @@ public class StartPage {
 
     @FXML
     void goToChat(ActionEvent event) {
-
+        Main m = new Main();
+        try{
+            m.changeScene("chats.fxml",1280,720);
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void goToIncominEvents(ActionEvent event) {
-
+        Main m = new Main();
+        try{
+            m.changeScene("events.fxml",1280,720);
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void goToMarks(ActionEvent event) {
-
+        Main m = new Main();
+        try{
+            m.changeScene("scores.fxml",1280,720);
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void goToPlan(ActionEvent event) {
-
+        Main m = new Main();
+        try{
+            m.changeScene("plans.fxml",1280,720);
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
