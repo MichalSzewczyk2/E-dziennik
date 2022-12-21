@@ -1,5 +1,7 @@
 package com.example.chatui;
 
+import database.tables.Users;
+import database.tables.position_user;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -53,7 +55,8 @@ public class LogIn {
 
         switch (authResult) {
             case 0:
-                m.changeScene("start_page.fxml",1280,720);
+                new Users().setActiveUser(new UserRepository().getUserByLoginAndPassword(login, pass));
+                new Utilis().goToStarPage();
                 break;
             case 1:
                 xmarkLogin.setOpacity(0.0);

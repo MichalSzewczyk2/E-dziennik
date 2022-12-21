@@ -10,8 +10,7 @@ import javafx.scene.shape.Circle;
 
 import java.io.IOException;
 
-
-public class StartPage {
+public class AdminStartPageControler {
 
 
 
@@ -27,10 +26,6 @@ public class StartPage {
 
     @FXML
     public void initialize(){
-        Announcements a = new Announcements().getAnnouncementByActiveDate();
-        announcement.setText(a.getMessage());
-        // TODO dodać sprawdzeni czy są powiadomienia i wyświetlanie kropki
-        // TODO dodać sprawdzanie i wyświetlanie ogłoszeń przy załadowaniu strony
     }
 
     @FXML
@@ -44,6 +39,17 @@ public class StartPage {
         }
 
     }
+
+    @FXML
+    public void goToAddUser(){
+        Main m = new Main();
+        try{
+            m.changeScene("add_user_page.fxml",1280,720);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
 
     @FXML
     public void goToSchoolInfo(MouseEvent event){
@@ -94,4 +100,5 @@ public class StartPage {
     void seeNotification(MouseEvent event) {
 
     }
+
 }

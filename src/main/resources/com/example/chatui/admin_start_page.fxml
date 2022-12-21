@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatui.AdminStartPageControler">
+    <top>
+        <Pane prefHeight="80.0" prefWidth="1280.0" style="-fx-background-color: #2874A6;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="761.0" prefHeight="81.0" prefWidth="519.0" text="Panel administratora" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                    <font>
+                        <Font name="Bookman Old Style" size="48.0" />
+                    </font>
+                </Label>
+                <Button layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#logOut" prefHeight="50.0" prefWidth="100.0" style="-fx-blend-mode: COLOR_BURN;" text="Wyloguj się">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+    </top>
+    <left>
+        <Pane prefHeight="640.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button layoutX="100.0" layoutY="100.0" mnemonicParsing="false" onAction="#goToAddUser" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Dodaj użytkownika" textFill="WHITE">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
+                <Button layoutX="100.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToMarks" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Oceny" textFill="WHITE">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
+                <Button layoutX="100.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToIncominEvents" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Nadchodzące wydarzenia" textFill="WHITE">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
+                <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" onAction="#goToChat" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Czaty" textFill="WHITE">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+    </left>
+    <right>
+        <Pane prefHeight="640.0" prefWidth="280.0" BorderPane.alignment="CENTER">
+         <children>
+                <ImageView fitHeight="366.0" fitWidth="400.0" layoutX="-43.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../img/student.png" />
+                    </image>
+                </ImageView>
+                <Label alignment="TOP_CENTER" contentDisplay="RIGHT" layoutY="353.0" onMouseClicked="#goToSchoolInfo" prefHeight="100.0" prefWidth="280.0" text="nazwa szkoły" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+         </children>
+        </Pane>
+    </right>
+    <center>
+        <Pane prefHeight="640.0" prefWidth="479.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="100.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToPlan" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Plan zajęć" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" onAction="#goToMarks" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Oceny" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button layoutX="100.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToIncominEvents" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Nadchodzące wydarzenia" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button layoutX="100.0" layoutY="100.0" mnemonicParsing="false" onAction="#goToChat" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Czaty" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+         </children>
+        </Pane>
+    </center>
+</BorderPane>
