@@ -11,7 +11,7 @@
     <top>
         <Pane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #2874A6;" BorderPane.alignment="CENTER">
             <children>
-                <Label alignment="CENTER" layoutX="880.0" prefHeight="80.0" prefWidth="400.0" text="Oceny" textFill="WHITE">
+                <Label fx:id="nazwa" alignment="CENTER" layoutX="880.0" prefHeight="80.0" prefWidth="400.0" text="Oceny" textFill="WHITE">
                     <font>
                         <Font name="Bookman Old Style" size="48.0" />
                     </font>
@@ -24,9 +24,6 @@
             </children>
         </Pane>
     </top>
-   <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </center>
    <left>
       <Pane prefHeight="640.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
@@ -40,4 +37,16 @@
          </children>
       </Pane>
    </left>
+   <right>
+      <Pane prefHeight="640.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="250.0" layoutY="22.0" text="Uwagi">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Pane layoutX="40.0" layoutY="71.0" prefHeight="550.0" prefWidth="520.0" style="-fx-background-color: #2874A6;" />
+            <ListView fx:id="notes" fixedCellSize="100.0" layoutX="45.0" layoutY="76.0" prefHeight="540.0" prefWidth="510.0" />
+         </children></Pane>
+   </right>
 </BorderPane>

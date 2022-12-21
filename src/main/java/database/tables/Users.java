@@ -1,6 +1,10 @@
 package database.tables;
 
-public class users implements DBTable {
+import java.util.ArrayList;
+
+public class Users implements DBTable {
+
+    private static Users activeUser;
 
     private int user_id;
     private String login;
@@ -11,10 +15,20 @@ public class users implements DBTable {
     private int phone_number;
     private position_user position;
 
-    public users() {
+    public Users() {}
+
+    public void setActiveUser(Users user){
+        activeUser = user;
     }
 
-    public users(int user_id, String login, String password, String name, String surname, String mail, int phone_number, position_user position) {
+    public Users getActiveUser(){
+        if(activeUser == null){
+            activeUser = new Users();
+        }
+        return activeUser;
+    }
+
+    public Users(int user_id, String login, String password, String name, String surname, String mail, int phone_number, position_user position) {
         this.user_id = user_id;
         this.login = login;
         this.password = password;
@@ -87,6 +101,51 @@ public class users implements DBTable {
 
     public void setPosition(position_user position) {
         this.position = position;
+    }
+
+    public ArrayList<String> getPositionsToADD(){
+        ArrayList<String> positions = new ArrayList<String>();
+        positions.add("Nauczyciel");
+        positions.add("Uczeń");
+        positions.add("Rodzic");
+        positions.add("Sekretariat");
+        positions.add("Administrator");
+        return positions;
+    }
+
+    public void setPositionByString(String pos){
+        switch (pos) {
+            case "admin":
+                this.position = position_user.ADMIN;
+                break;
+            case "Administrator":
+                this.position = position_user.ADMIN;
+                break;
+            case "sekretariat":
+                this.position = position_user.SEKRETARIAT;
+                break;
+            case "Sekretariat":
+                this.position = position_user.SEKRETARIAT;
+                break;
+            case "nauczyciel":
+                this.position = position_user.NAUCZYCIEL;
+                break;
+            case "Nauczyciel":
+                this.position = position_user.NAUCZYCIEL;
+                break;
+            case "rodzic":
+                this.position = position_user.RODZIC;
+                break;
+            case "Rodzic":
+                this.position = position_user.RODZIC;
+                break;
+            case "uczen":
+                this.position = position_user.UCZEN;
+                break;
+            case "Uczeń":
+                this.position = position_user.UCZEN;
+                break;
+        }
     }
 
     @Override

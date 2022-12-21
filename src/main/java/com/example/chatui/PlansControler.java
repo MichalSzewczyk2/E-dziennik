@@ -14,12 +14,7 @@ public class PlansControler {
 
     @FXML
     void goBack(ActionEvent event) {
-        Main m = new Main();
-        try {
-            m.changeScene("start_page.fxml",1280,720);
-        }catch (IOException e){
-            throw new RuntimeException(e);
-        }
+        new Utilis().goToStarPage();
     }
 
 }
