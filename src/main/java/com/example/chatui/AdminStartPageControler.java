@@ -1,6 +1,8 @@
 package com.example.chatui;
 
+import database.repository.SchoolRepository;
 import database.tables.Announcements;
+import database.tables.School;
 import database.tables.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,9 +25,14 @@ public class AdminStartPageControler {
     @FXML
     private Label announcement;
 
+    @FXML
+    private Label sName;
+
 
     @FXML
     public void initialize(){
+        School school = new SchoolRepository().getSchool();
+        sName.setText(school.getName());
     }
 
     @FXML
@@ -54,6 +61,16 @@ public class AdminStartPageControler {
     @FXML
     public void goToSchoolInfo(MouseEvent event){
 
+    }
+
+    @FXML
+    public void goToSchool(ActionEvent event){
+        Main m = new Main();
+        try{
+            m.changeScene("edit_school.fxml",1280,720);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
