@@ -38,7 +38,7 @@
                         <Font size="21.0" />
                     </font>
                 </Button>
-                <Button layoutX="100.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToIncominEvents" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Nadchodzące wydarzenia" textFill="WHITE">
+                <Button layoutX="100.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToSchool" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Dane Szkoły" textFill="WHITE">
                     <font>
                         <Font size="21.0" />
                     </font>
@@ -59,7 +59,7 @@
                         <Image url="@../../../img/student.png" />
                     </image>
                 </ImageView>
-                <Label alignment="TOP_CENTER" contentDisplay="RIGHT" layoutY="353.0" onMouseClicked="#goToSchoolInfo" prefHeight="100.0" prefWidth="280.0" text="nazwa szkoły" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                <Label fx:id="sName" alignment="TOP_CENTER" contentDisplay="RIGHT" layoutY="353.0" onMouseClicked="#goToSchoolInfo" prefHeight="100.0" prefWidth="280.0" text="nazwa szkoły" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                     <font>
                         <Font size="30.0" />
                     </font>

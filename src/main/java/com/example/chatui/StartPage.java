@@ -1,6 +1,8 @@
 package com.example.chatui;
 
+import database.repository.SchoolRepository;
 import database.tables.Announcements;
+import database.tables.School;
 import database.tables.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,11 +26,16 @@ public class StartPage {
     @FXML
     private Label announcement;
 
+    @FXML
+    private Label sName;
+
 
     @FXML
     public void initialize(){
         Announcements a = new Announcements().getAnnouncementByActiveDate();
         announcement.setText(a.getMessage());
+        School school = new SchoolRepository().getSchool();
+        sName.setText(school.getName());
         // TODO dodać sprawdzeni czy są powiadomienia i wyświetlanie kropki
         // TODO dodać sprawdzanie i wyświetlanie ogłoszeń przy załadowaniu strony
     }
