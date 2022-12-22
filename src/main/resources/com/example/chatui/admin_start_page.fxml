@@ -33,7 +33,7 @@
                         <Font size="21.0" />
                     </font>
                 </Button>
-                <Button layoutX="100.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToMarks" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Oceny" textFill="WHITE">
+                <Button layoutX="100.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToModifyUser" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Modyfikuj użytkownika" textFill="WHITE">
                     <font>
                         <Font size="21.0" />
                     </font>
@@ -75,7 +75,7 @@
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" onAction="#goToMarks" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Oceny" textFill="WHITE">
+            <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Oceny" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>
