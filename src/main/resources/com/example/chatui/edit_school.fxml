@@ -44,6 +44,11 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Button>
+            <Label alignment="CENTER" layoutX="439.0" layoutY="93.0" prefHeight="64.0" prefWidth="352.0" text="Dane Szkoły">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </center>
