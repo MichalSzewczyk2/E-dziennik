@@ -77,10 +77,10 @@ public class AdminStartPageControler {
     }
 
     @FXML
-    void goToMarks(ActionEvent event) {
+    void goToModifyUser(ActionEvent event) {
         Main m = new Main();
         try{
-            m.changeScene("scores.fxml",1280,720);
+            m.changeScene("modify_user_page.fxml",1280,720);
         }catch (IOException e){
             throw new RuntimeException(e);
         }

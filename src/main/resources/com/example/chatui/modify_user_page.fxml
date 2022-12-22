@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="addPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatui.admin.ModifyUserPageController">
+    <top>
+        <Pane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #2874A6;" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" layoutX="658.0" prefHeight="80.0" prefWidth="622.0" text="Zmień dane użytkownika" textFill="WHITE">
+                    <font>
+                        <Font name="Bookman Old Style" size="48.0" />
+                    </font>
+                </Label>
+                <Button fx:id="back" layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-blend-mode: color-burn;" text="Powrót">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+    </top>
+   <center>
+        <Pane prefHeight="640.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" layoutX="150.0" layoutY="30.0" prefHeight="45.0" prefWidth="340.0" text="Wyszukaj użytkownika">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="50.0" layoutY="100.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Imie" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Nazwisko" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="name1" layoutX="200.0" layoutY="100.0" prefHeight="40.0" prefWidth="300.0" />
+                <TextField fx:id="surname1" layoutX="200.0" layoutY="150.0" prefHeight="40.0" prefWidth="300.0" />
+                <Button fx:id="search" layoutX="245.0" layoutY="224.0" mnemonicParsing="false" onAction="#search" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #2874A6; -fx-border-color: black; -fx-border-image-width: 10;" text="Szukaj" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="23.0" />
+                    </font>
+                </Button>
+              <Pane layoutX="640.0" prefHeight="640.0" prefWidth="640.0">
+                  <children>
+                      <Label fx:id="loginl" alignment="CENTER" layoutX="50.0" layoutY="200.0" opacity="0.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Login" textFill="WHITE">
+                          <font>
+                              <Font size="14.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="passwordl" alignment="CENTER" layoutX="50.0" layoutY="250.0" opacity="0.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Hasło" textFill="WHITE">
+                          <font>
+                              <Font size="14.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="namel" alignment="CENTER" layoutX="50.0" layoutY="100.0" opacity="0.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Imie" textFill="WHITE">
+                          <font>
+                              <Font size="14.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="surnamel" alignment="CENTER" layoutX="50.0" layoutY="150.0" opacity="0.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Nazwisko" textFill="WHITE">
+                          <font>
+                              <Font size="14.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="maill" alignment="CENTER" layoutX="50.0" layoutY="300.0" opacity="0.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Mail" textFill="WHITE">
+                          <font>
+                              <Font size="14.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="phoneNumberl" alignment="CENTER" layoutX="50.0" layoutY="350.0" opacity="0.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Numer telefonu" textFill="WHITE">
+                          <font>
+                              <Font size="14.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="positionl" alignment="CENTER" layoutX="50.0" layoutY="400.0" opacity="0.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Rodzaj konta" textFill="WHITE">
+                          <font>
+                              <Font size="14.0" />
+                          </font>
+                      </Label>
+                      <TextField fx:id="name" layoutX="200.0" layoutY="100.0" opacity="0.0" prefHeight="40.0" prefWidth="300.0" />
+                      <TextField fx:id="surname" layoutX="200.0" layoutY="150.0" opacity="0.0" prefHeight="40.0" prefWidth="300.0" />
+                      <TextField fx:id="login" layoutX="200.0" layoutY="200.0" opacity="0.0" prefHeight="40.0" prefWidth="300.0" />
+                      <TextField fx:id="password" layoutX="200.0" layoutY="250.0" opacity="0.0" prefHeight="40.0" prefWidth="300.0" />
+                      <TextField fx:id="mail" layoutX="200.0" layoutY="300.0" opacity="0.0" prefHeight="40.0" prefWidth="300.0" />
+                      <TextField fx:id="phoneNumber" layoutX="200.0" layoutY="350.0" opacity="0.0" prefHeight="40.0" prefWidth="300.0" />
+                      <Button fx:id="modify" layoutX="245.0" layoutY="477.0" mnemonicParsing="false" onAction="#modify" opacity="0.0" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #2874A6; -fx-border-color: black; -fx-border-image-width: 10;" text="Modyfikuj" textFill="WHITE">
+                          <font>
+                              <Font name="System Bold" size="23.0" />
+                          </font>
+                      </Button>
+                      <ChoiceBox fx:id="positionChoiceBox" layoutX="200.0" layoutY="400.0" opacity="0.0" prefHeight="40.0" prefWidth="300.0" />
+                      <Label fx:id="userl" alignment="CENTER" layoutX="190.0" layoutY="30.0" opacity="0.0" prefHeight="45.0" prefWidth="260.0" text="Użytkownik">
+                          <font>
+                              <Font size="30.0" />
+                          </font>
+                      </Label>
+                  </children>
+              </Pane>
+            </children>
+        </Pane>
+   </center>
+</BorderPane>

@@ -87,11 +87,11 @@ public class Users implements DBTable {
         this.mail = mail;
     }
 
-    public int getPhone_number() {
+    public int getPhoneNumber() {
         return phone_number;
     }
 
-    public void setPhone_number(int phone_number) {
+    public void setPhoneNumber(int phone_number) {
         this.phone_number = phone_number;
     }
 
@@ -104,13 +104,30 @@ public class Users implements DBTable {
     }
 
     public ArrayList<String> getPositionsToADD(){
-        ArrayList<String> positions = new ArrayList<String>();
+        ArrayList<String> positions = new ArrayList<>();
         positions.add("Nauczyciel");
         positions.add("Uczeń");
         positions.add("Rodzic");
         positions.add("Sekretariat");
         positions.add("Administrator");
         return positions;
+    }
+
+    public String getNaturalPosition(){
+        switch(position){
+            case ADMIN:
+                return "Administrator";
+            case UCZEN:
+                return "Uczeń";
+            case RODZIC:
+                return "Rodzic";
+            case NAUCZYCIEL:
+                return "Nauczyciel";
+            case SEKRETARIAT:
+                return "Sekretariat";
+            default:
+                return null;
+        }
     }
 
     public void setPositionByString(String pos){
