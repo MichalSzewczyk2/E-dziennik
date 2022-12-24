@@ -31,6 +31,16 @@ public class Main extends Application {
         //stage.getScene().setRoot(pane);
     }
 
+    public void openNewWindow(String fxml, int v1, int v2, String name) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource(fxml));
+        Scene scene = new Scene(fxmlLoader.load(), v1,  v2);
+        Stage stage = new Stage();
+        stage.setTitle(name);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public static void main(String[] args) {
         launch();
     }
