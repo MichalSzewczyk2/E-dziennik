@@ -43,7 +43,7 @@
                         <Font size="21.0" />
                     </font>
                 </Button>
-                <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" onAction="#goToChat" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Czaty" textFill="WHITE">
+                <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" onAction="#goNews" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Ogłoszenia" textFill="WHITE">
                     <font>
                         <Font size="21.0" />
                     </font>

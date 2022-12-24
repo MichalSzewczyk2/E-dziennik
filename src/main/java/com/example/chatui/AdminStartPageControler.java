@@ -48,6 +48,16 @@ public class AdminStartPageControler {
     }
 
     @FXML
+    public void goNews(){
+        Main m = new Main();
+        try{
+            m.changeScene("announcements_page.fxml",1280,720);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     public void goToAddUser(){
         Main m = new Main();
         try{

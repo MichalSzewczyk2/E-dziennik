@@ -87,12 +87,7 @@ public class Announcements implements DBTable {
 
     @Override
     public String toString() {
-        return "announcements{" +
-                "announcements_id=" + announcements_id +
-                ", title='" + title + '\'' +
-                ", message='" + message + '\'' +
-                ", start=" + start +
-                ", end=" + end +
-                '}';
+        return  title + ":\n" +
+                message;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.chatui;
 
+import database.repository.AnnouncementsRepository;
 import database.repository.SchoolRepository;
 import database.tables.Announcements;
 import database.tables.School;
@@ -7,10 +8,16 @@ import database.tables.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
+import javafx.util.Callback;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 
 public class StartPage {
@@ -24,7 +31,7 @@ public class StartPage {
     private Label notificationNumber;
 
     @FXML
-    private Label announcement;
+    private ListView<Announcements> list;
 
     @FXML
     private Label sName;
@@ -32,8 +39,27 @@ public class StartPage {
 
     @FXML
     public void initialize(){
-        Announcements a = new Announcements().getAnnouncementByActiveDate();
-        announcement.setText(a.getMessage());
+        list.setCellFactory(new Callback<ListView<Announcements>, ListCell<Announcements>>() {
+            @Override
+            public ListCell<Announcements> call(ListView<Announcements> announcementsListView) {
+                final ListCell cell = new ListCell(){
+                    private Text text;
+
+                    @Override
+                    public void updateItem(Object item, boolean empty){
+                        super.updateItem(item, empty);
+                        if(!empty){
+                            text = new Text(item.toString());
+                            text.setWrappingWidth(list.getPrefWidth()-20);
+                            setGraphic(text);
+                        }
+                    }
+                };
+                return cell;
+            }
+        });
+        ArrayList<Announcements> announcements = new AnnouncementsRepository().getAnnouncementsByActiveDate(LocalDate.now());
+        list.getItems().addAll(announcements);
         School school = new SchoolRepository().getSchool();
         sName.setText(school.getName());
         // TODO dodać sprawdzeni czy są powiadomienia i wyświetlanie kropki
