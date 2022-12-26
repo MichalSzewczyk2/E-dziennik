@@ -4,18 +4,11 @@ import database.repository.*;
 import database.tables.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 
-import java.text.AttributedString;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 
 
