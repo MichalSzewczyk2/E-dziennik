@@ -1,15 +1,15 @@
 package database.tables;
 
-public class class_DB implements DBTable {
+public class ClassDB implements DBTable {
     private int class_id;
     private int supervisor_id;
     private int year;
     private String name;
 
-    public class_DB() {
+    public ClassDB() {
     }
 
-    public class_DB(int class_id, int supervisor_id, int year, String name) {
+    public ClassDB(int class_id, int supervisor_id, int year, String name) {
         this.class_id = class_id;
         this.supervisor_id = supervisor_id;
         this.year = year;

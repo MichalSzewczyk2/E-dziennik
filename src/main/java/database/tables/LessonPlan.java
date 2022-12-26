@@ -2,20 +2,20 @@ package database.tables;
 
 import java.sql.Time;
 
-public class lesson_plan implements DBTable {
+public class LessonPlan implements DBTable {
     private int plan_id;
     private int class_id;
     private int subject_id;
     private int teacher_id;
     private int classroom_id;
-    private week_day_lesson_plan week_day;
+    private WeekDay week_day;
     private Time start;
     private Time end;
 
-    public lesson_plan() {
+    public LessonPlan() {
     }
 
-    public lesson_plan(int plan_id, int class_id, int subject_id, int teacher_id, int classroom_id, week_day_lesson_plan week_day, Time start, Time end) {
+    public LessonPlan(int plan_id, int class_id, int subject_id, int teacher_id, int classroom_id, WeekDay week_day, Time start, Time end) {
         this.plan_id = plan_id;
         this.class_id = class_id;
         this.subject_id = subject_id;
@@ -66,11 +66,11 @@ public class lesson_plan implements DBTable {
         this.classroom_id = classroom_id;
     }
 
-    public week_day_lesson_plan getWeek_day() {
+    public WeekDay getWeek_day() {
         return week_day;
     }
 
-    public void setWeek_day(week_day_lesson_plan week_day) {
+    public void setWeek_day(WeekDay week_day) {
         this.week_day = week_day;
     }
 
@@ -88,6 +88,48 @@ public class lesson_plan implements DBTable {
 
     public void setEnd(Time end) {
         this.end = end;
+    }
+
+    public WeekDay setWeekDay(String day){
+        switch (day){
+            case "poniedziałek":
+                return WeekDay.PONIEDZIALEK;
+            case "wtorek":
+                return WeekDay.WTOREK;
+            case "sroda":
+                return WeekDay.SRODA;
+            case "czwartek":
+                return WeekDay.CZWARTEK;
+            case "piatek":
+                return WeekDay.PIATEK;
+            case "sobota":
+                return WeekDay.SOBOTA;
+            case "niedziela":
+                return WeekDay.NIEDZIELA;
+            default:
+                return null;
+        }
+    }
+
+    public String getNaturalDay(String day) {
+        switch (day) {
+            case "PONIEDZIALEK":
+                return "Poniedziałek";
+            case "WTOREK":
+                return "Wtorek";
+            case "SRODA":
+                return "Środa";
+            case "CZWARTEK":
+                return "Czwartek";
+            case "PIATEK":
+                return "Piątek";
+            case "SOBOTA":
+                return "Sobota";
+            case "NIEDZIELA":
+                return "Niedziela";
+            default:
+                return null;
+        }
     }
 
     @Override

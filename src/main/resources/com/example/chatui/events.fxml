@@ -2,14 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatui.EventsControler">
-    <center>
-        <Label text="events" BorderPane.alignment="CENTER" />
-    </center>
     <top>
         <Pane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #2874A6;" BorderPane.alignment="CENTER">
             <children>
@@ -26,4 +26,45 @@
             </children>
         </Pane>
     </top>
+   <left>
+      <Pane prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #89c2e7;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="148.0" layoutY="23.0" text="Wydarzenia">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ListView layoutX="15.0" layoutY="53.0" prefHeight="570.0" prefWidth="370.0" style="-fx-background-color: #89c2e7;" />
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="316.0" layoutY="14.0" prefHeight="17.0" prefWidth="249.0" text="Szczegóły">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="33.0" layoutY="97.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Data" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="33.0" layoutY="153.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Nazwa" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="33.0" layoutY="208.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Treść" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField editable="false" layoutX="190.0" layoutY="97.0" prefHeight="40.0" prefWidth="500.0" />
+            <TextField editable="false" layoutX="190.0" layoutY="153.0" prefHeight="40.0" prefWidth="500.0" />
+            <TextArea editable="false" layoutX="190.0" layoutY="208.0" prefHeight="380.0" prefWidth="500.0" wrapText="true" />
+         </children>
+      </Pane>
+   </center>
 </BorderPane>

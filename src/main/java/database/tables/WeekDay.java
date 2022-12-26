@@ -1,5 +1,5 @@
 package database.tables;
 
-public enum week_day_lesson_plan {
+public enum WeekDay {
     PONIEDZIALEK, WTOREK, SRODA, CZWARTEK, PIATEK, SOBOTA, NIEDZIELA
 }

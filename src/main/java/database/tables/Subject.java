@@ -1,13 +1,13 @@
 package database.tables;
 
-public class subject implements DBTable {
+public class Subject implements DBTable {
     private int subject_id;
     private String name;
 
-    public subject() {
+    public Subject() {
     }
 
-    public subject(int subject_id, String name) {
+    public Subject(int subject_id, String name) {
         this.subject_id = subject_id;
         this.name = name;
     }

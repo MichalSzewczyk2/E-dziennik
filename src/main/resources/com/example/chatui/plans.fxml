@@ -2,14 +2,12 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatui.PlansControler">
-    <center>
-        <Label text="plans" BorderPane.alignment="CENTER" />
-    </center>
     <top>
         <Pane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #2874A6;" BorderPane.alignment="CENTER">
             <children>
@@ -18,7 +16,7 @@
                         <Font name="Bookman Old Style" size="48.0" />
                     </font>
                 </Label>
-                <Button fx:id="back" layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-blend-mode: COLOR_BURN;" text="Powrót">
+                <Button layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-blend-mode: COLOR_BURN;" text="Powrót">
                     <font>
                         <Font name="System Bold" size="13.0" />
                     </font>
@@ -26,4 +24,20 @@
             </children>
         </Pane>
     </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="140.0" layoutY="36.0" prefHeight="17.0" prefWidth="200.0" style="-fx-border-color: black;" text="Poniedziałek" />
+            <Label alignment="CENTER" layoutX="340.0" layoutY="36.0" prefHeight="17.0" prefWidth="200.0" style="-fx-border-color: black;" text="Wtorek" />
+            <Label alignment="CENTER" layoutX="540.0" layoutY="36.0" prefHeight="17.0" prefWidth="200.0" style="-fx-border-color: black;" text="Środa" />
+            <Label alignment="CENTER" layoutX="740.0" layoutY="36.0" prefHeight="17.0" prefWidth="200.0" style="-fx-border-color: black;" text="Czwartek" />
+            <Label alignment="CENTER" layoutX="940.0" layoutY="36.0" prefHeight="17.0" prefWidth="200.0" style="-fx-border-color: black;" text="Piątek" />
+            <ListView fx:id="list1" fixedCellSize="80.0" layoutX="140.0" layoutY="55.0" prefHeight="550.0" prefWidth="200.0" style="-fx-border-color: black;" />
+            <ListView fx:id="list2" fixedCellSize="80.0" layoutX="340.0" layoutY="55.0" prefHeight="550.0" prefWidth="200.0" style="-fx-border-color: black;" />
+            <ListView fx:id="list3" fixedCellSize="80.0" layoutX="540.0" layoutY="55.0" prefHeight="550.0" prefWidth="200.0" style="-fx-border-color: black;" />
+            <ListView fx:id="list4" fixedCellSize="80.0" layoutX="740.0" layoutY="55.0" prefHeight="550.0" prefWidth="200.0" style="-fx-border-color: black;" />
+            <ListView fx:id="list5" fixedCellSize="80.0" layoutX="940.0" layoutY="55.0" prefHeight="550.0" prefWidth="200.0" style="-fx-border-color: black;" />
+         </children>
+      </Pane>
+   </center>
 </BorderPane>

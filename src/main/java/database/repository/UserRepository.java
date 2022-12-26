@@ -111,7 +111,7 @@ public class UserRepository {
             users.setName(rs.getString("name"));
             users.setSurname(rs.getString("surname"));
             users.setMail(rs.getString("mail"));
-            users.setPhoneNumber(Integer.parseInt(rs.getString("phone_number")));
+            users.setPhoneNumber(rs.getInt("phone_number"));
             String pos = rs.getString("position");
             switch (pos) {
                 case "admin":

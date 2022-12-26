@@ -1,14 +1,14 @@
 package database.tables;
 
-public class classroom implements DBTable {
+public class Classroom implements DBTable {
     private int classroom_id;
     private int number;
     private int floor;
 
-    public classroom() {
+    public Classroom() {
     }
 
-    public classroom(int classroom_id, int number, int floor) {
+    public Classroom(int classroom_id, int number, int floor) {
         this.classroom_id = classroom_id;
         this.number = number;
         this.floor = floor;
