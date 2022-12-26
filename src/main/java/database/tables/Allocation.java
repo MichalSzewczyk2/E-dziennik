@@ -1,13 +1,13 @@
 package database.tables;
 
-public class allocation implements DBTable {
+public class Allocation implements DBTable {
     private int class_id;
     private int student_id;
 
-    public allocation() {
+    public Allocation() {
     }
 
-    public allocation(int class_id, int student_id) {
+    public Allocation(int class_id, int student_id) {
         this.class_id = class_id;
         this.student_id = student_id;
     }

@@ -1,14 +1,14 @@
 package database.tables;
 
-public class task implements DBTable {
+public class Task implements DBTable {
     private int task_type_id;
     private int lesson_id;
     private String description;
 
-    public task() {
+    public Task() {
     }
 
-    public task(int task_type_id, int lesson_id, String description) {
+    public Task(int task_type_id, int lesson_id, String description) {
         this.task_type_id = task_type_id;
         this.lesson_id = lesson_id;
         this.description = description;
