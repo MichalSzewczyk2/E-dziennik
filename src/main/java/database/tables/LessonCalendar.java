@@ -2,15 +2,15 @@ package database.tables;
 
 import java.sql.Date;
 
-public class lesson_calendar implements DBTable {
+public class LessonCalendar implements DBTable {
     private int lesson_id;
     private int plan_id;
     private Date date;
 
-    public lesson_calendar() {
+    public LessonCalendar() {
     }
 
-    public lesson_calendar(int lesson_id, int plan_id, Date date) {
+    public LessonCalendar(int lesson_id, int plan_id, Date date) {
         this.lesson_id = lesson_id;
         this.plan_id = plan_id;
         this.date = date;

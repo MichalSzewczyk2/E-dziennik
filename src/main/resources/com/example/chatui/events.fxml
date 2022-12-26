@@ -18,7 +18,7 @@
                         <Font name="Bookman Old Style" size="48.0" />
                     </font>
                 </Label>
-                <Button fx:id="back" layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-blend-mode: COLOR_BURN;" text="Powrót">
+                <Button layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-blend-mode: COLOR_BURN;" text="Powrót">
                     <font>
                         <Font name="System Bold" size="13.0" />
                     </font>
@@ -34,7 +34,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <ListView layoutX="15.0" layoutY="53.0" prefHeight="570.0" prefWidth="370.0" style="-fx-background-color: #89c2e7;" />
+            <ListView fx:id="list" layoutX="15.0" layoutY="53.0" onMouseClicked="#showEvent" prefHeight="570.0" prefWidth="370.0" style="-fx-background-color: #89c2e7;" />
          </children>
       </Pane>
    </left>
@@ -61,9 +61,9 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField editable="false" layoutX="190.0" layoutY="97.0" prefHeight="40.0" prefWidth="500.0" />
-            <TextField editable="false" layoutX="190.0" layoutY="153.0" prefHeight="40.0" prefWidth="500.0" />
-            <TextArea editable="false" layoutX="190.0" layoutY="208.0" prefHeight="380.0" prefWidth="500.0" wrapText="true" />
+            <TextField fx:id="dateLabel" editable="false" layoutX="190.0" layoutY="97.0" prefHeight="40.0" prefWidth="500.0" />
+            <TextField fx:id="nameLabel" editable="false" layoutX="190.0" layoutY="153.0" prefHeight="40.0" prefWidth="500.0" />
+            <TextArea fx:id="descLabel" editable="false" layoutX="190.0" layoutY="208.0" prefHeight="380.0" prefWidth="500.0" wrapText="true" />
          </children>
       </Pane>
    </center>
