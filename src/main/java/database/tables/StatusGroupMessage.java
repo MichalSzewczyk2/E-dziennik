@@ -1,5 +1,5 @@
 package database.tables;
 
-public enum status_group_message {
+public enum StatusGroupMessage {
     ADMIN, UZYTKOWNIK
 }

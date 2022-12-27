@@ -1,13 +1,13 @@
 package database.tables;
 
-public class group_name implements DBTable {
+public class GroupName implements DBTable {
     private int chat_id;
     private String name;
 
-    public group_name() {
+    public GroupName() {
     }
 
-    public group_name(int chat_id, String name) {
+    public GroupName(int chat_id, String name) {
         this.chat_id = chat_id;
         this.name = name;
     }

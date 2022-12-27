@@ -1,15 +1,15 @@
 package database.tables;
 
-public class group_message implements DBTable {
+public class GroupMessage implements DBTable {
     private int chat_id;
     private int user_id;
     private int last_read;
-    private status_group_message status;
+    private StatusGroupMessage status;
 
-    public group_message() {
+    public GroupMessage() {
     }
 
-    public group_message(int chat_id, int user_id, int last_read, status_group_message status) {
+    public GroupMessage(int chat_id, int user_id, int last_read, StatusGroupMessage status) {
         this.chat_id = chat_id;
         this.user_id = user_id;
         this.last_read = last_read;
@@ -40,12 +40,23 @@ public class group_message implements DBTable {
         this.last_read = last_read;
     }
 
-    public status_group_message getStatus() {
+    public StatusGroupMessage getStatus() {
         return status;
     }
 
-    public void setStatus(status_group_message status) {
+    public void setStatus(StatusGroupMessage status) {
         this.status = status;
+    }
+
+    public StatusGroupMessage getEnumFromDB(String s){
+        switch (s){
+            case "admin":
+                return StatusGroupMessage.ADMIN;
+            case "użytkownik":
+                return StatusGroupMessage.UZYTKOWNIK;
+            default:
+                return null;
+        }
     }
 
     @Override

@@ -2,17 +2,17 @@ package database.tables;
 
 import java.sql.Date;
 
-public class messages implements DBTable {
+public class Messages implements DBTable {
     private int message_id;
     private int chat_id;
     private int user_id;
     private Date date;
     private String message;
 
-    public messages() {
+    public Messages() {
     }
 
-    public messages(int message_id, int chat_id, int user_id, Date date, String message) {
+    public Messages(int message_id, int chat_id, int user_id, Date date, String message) {
         this.message_id = message_id;
         this.chat_id = chat_id;
         this.user_id = user_id;
