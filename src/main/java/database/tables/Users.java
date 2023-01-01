@@ -39,7 +39,7 @@ public class Users implements DBTable {
         this.position = position;
     }
 
-    public int getUser_id() {
+    public int getUserId() {
         return user_id;
     }
 

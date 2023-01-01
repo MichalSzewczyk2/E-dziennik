@@ -145,31 +145,32 @@ public class PlansControler {
         ArrayList<String> list = new ArrayList<>();
 
         Users user = new Users().getActiveUser();
-        ClassDB classDB = new ClassRepository().getClassByUser(user.getUser_id());
+        ClassDB classDB = new ClassRepository().getClassByUser(user.getUserId());
 
-        ArrayList<LessonPlan> plan = new LessonPlanRepository().getLessonsByClassAndDay(classDB.getClass_id(), day);
+        if(classDB != null){
+            ArrayList<LessonPlan> plan = new LessonPlanRepository().getLessonsByClassAndDay(classDB.getClass_id(), day);
 
-        for (LessonPlan p : plan) {
+            for (LessonPlan p : plan) {
 
-            Subject subject = new SubjectRepository().getSubjectById(p.getSubject_id());
-            Classroom classroom = new ClassroomRepository().getClassroomById(p.getClassroom_id());
-            Users teacher = new UserRepository().getUserById(p.getTeacher_id());
+                Subject subject = new SubjectRepository().getSubjectById(p.getSubject_id());
+                Classroom classroom = new ClassroomRepository().getClassroomById(p.getClassroom_id());
+                Users teacher = new UserRepository().getUserById(p.getTeacher_id());
 
-            String s = trimLastThreeCharacters(p.getStart().toString()) + " - "
-                    + trimLastThreeCharacters(p.getEnd().toString()) +
-                    "\n" + subject.getName() +
-                    "\nnauczyciel: " + teacher.getName() + " " + teacher.getSurname() +
-                    "\nklasa: " + classroom.getNumber() + "    piętro: " + classroom.getFloor();
-            list.add(s);
+                String s = trimLastCharacters(p.getStart().toString(), 3) + " - "
+                        + trimLastCharacters(p.getEnd().toString(), 3) +
+                        "\n" + subject.getName() +
+                        "\nnauczyciel: " + teacher.getName() + " " + teacher.getSurname() +
+                        "\nklasa: " + classroom.getNumber() + "    piętro: " + classroom.getFloor();
+                list.add(s);
+            }
         }
-
 
         return list;
     }
 
-    public static String trimLastThreeCharacters(String input) {
-        if (input.length() > 3) {
-            return input.substring(0, input.length() - 3);
+    public static String trimLastCharacters(String input, int i) {
+        if (input.length() > i) {
+            return input.substring(0, input.length() - i);
         } else {
             return input;
         }

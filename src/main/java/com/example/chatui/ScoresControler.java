@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class ScoresControler {
@@ -32,10 +31,10 @@ public class ScoresControler {
     public void initialize() {
         activeUser = new Users().getActiveUser();
         nazwa.setText(activeUser.getName() + " " + activeUser.getSurname());
-        ArrayList<String> subjects = new GradeRepository().getStudentsSubjectsNames(activeUser.getUser_id());
+        ArrayList<String> subjects = new GradeRepository().getStudentsSubjectsNames(activeUser.getUserId());
         scores.getItems().addAll(subjects);
 
-        ArrayList<String> n = new NotesRepository().getStudentsNotes(activeUser.getUser_id());
+        ArrayList<String> n = new NotesRepository().getStudentsNotes(activeUser.getUserId());
         notes.getItems().addAll(n);
     }
 

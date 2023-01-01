@@ -21,6 +21,21 @@ public class GroupNameRepository {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
+        }
+        return groupName;
+    }
+    public GroupName getGroupNameByName(String name) {
+        GroupName groupName = new GroupName();
+        try {
+            ResultSet rs = statement.executeQuery("SELECT * FROM group_name WHERE name = '" + name + "'");
+            if (rs.next()) {
+                groupName.setChat_id(rs.getInt("chat_id"));
+                groupName.setName(rs.getString("name"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
         }
         return groupName;
     }

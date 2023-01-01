@@ -9,13 +9,11 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -62,7 +60,7 @@ public class EventsControler {
         ArrayList<Event> s = new ArrayList<>();
 
         Users user = new Users().getActiveUser();
-        ClassDB classDB = new ClassRepository().getClassByUser(user.getUser_id());
+        ClassDB classDB = new ClassRepository().getClassByUser(user.getUserId());
 
 
         ArrayList<LessonCalendar> lc = new LessonCalendarRepository().getLessonCalendarsByClassId(classDB.getClass_id(), LocalDate.now());

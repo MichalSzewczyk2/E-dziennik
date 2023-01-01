@@ -49,14 +49,17 @@ public class GroupMessage implements DBTable {
     }
 
     public StatusGroupMessage getEnumFromDB(String s){
-        switch (s){
-            case "admin":
-                return StatusGroupMessage.ADMIN;
-            case "użytkownik":
-                return StatusGroupMessage.UZYTKOWNIK;
-            default:
-                return null;
+        if(s!=null){
+            switch (s){
+                case "admin":
+                    return StatusGroupMessage.ADMIN;
+                case "użytkownik":
+                    return StatusGroupMessage.UZYTKOWNIK;
+                default:
+                    return null;
+            }
         }
+        return null;
     }
 
     @Override

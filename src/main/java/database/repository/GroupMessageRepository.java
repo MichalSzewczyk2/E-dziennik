@@ -13,7 +13,7 @@ public class GroupMessageRepository {
 
     Statement statement = new JDBCClient().getStatement();
 
-    public ArrayList<GroupMessage> getGroupMessageByUserId(int id){
+    public ArrayList<GroupMessage> getGroupMessagesByUserId(int id){
 
         ArrayList<GroupMessage> group = new ArrayList<>();
 
@@ -42,5 +42,14 @@ public class GroupMessageRepository {
             e.printStackTrace();
         }
         return users;
+    }
+
+    public void setLastRead(int chatId, int userId, int lastRead) {
+        try{
+            statement.executeUpdate("Update `group_message` SET last_read = " + lastRead +
+                    " WHERE chat_id = " + chatId + " AND user_id = " + userId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
