@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatui.AddChat">
+    <top>
+        <Pane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #2874A6;" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" layoutX="1064.0" prefHeight="80.0" prefWidth="216.0" text="Czat" textFill="WHITE">
+                    <font>
+                        <Font name="Bookman Old Style" size="48.0" />
+                    </font>
+                </Label>
+                <Button layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-blend-mode: COLOR_BURN;" text="Powrót">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+    </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="196.0" layoutY="189.0" prefHeight="45.0" prefWidth="340.0" text="Wyszukaj użytkownika">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="96.0" layoutY="257.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Imie" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="96.0" layoutY="327.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Nazwisko" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="name" layoutX="216.0" layoutY="257.0" prefHeight="40.0" prefWidth="300.0" />
+            <TextField fx:id="surname" layoutX="216.0" layoutY="327.0" prefHeight="40.0" prefWidth="300.0" />
+            <Button layoutX="242.0" layoutY="400.0" mnemonicParsing="false" onAction="#search" prefHeight="52.0" prefWidth="248.0" style="-fx-background-color: #2874A6; -fx-border-color: black; -fx-border-image-width: 10;" text="Dodaj użytkownika" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="196.0" layoutY="42.0" prefHeight="45.0" prefWidth="340.0" text="Wyszukaj użytkownika">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="96.0" layoutY="124.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Nazwa czatu" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="chatName" layoutX="216.0" layoutY="124.0" prefHeight="40.0" prefWidth="300.0" />
+            <Button layoutX="776.0" layoutY="400.0" mnemonicParsing="false" onAction="#makeChat" prefHeight="52.0" prefWidth="248.0" style="-fx-background-color: #2874A6; -fx-border-color: black; -fx-border-image-width: 10;" text="Utwórz czat" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Button>
+            <ListView fx:id="userList" layoutX="683.0" layoutY="64.0" prefHeight="313.0" prefWidth="434.0" />
+            <Label fx:id="err" layoutX="277.0" layoutY="460.0" opacity="0.0" text="Nie ma takiego użytkownika!" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

@@ -6,6 +6,8 @@ public class Users implements DBTable {
 
     private static Users activeUser;
 
+    private static ArrayList<Users> userList;
+
     private int user_id;
     private String login;
     private String password;
@@ -21,11 +23,23 @@ public class Users implements DBTable {
         activeUser = user;
     }
 
-    public Users getActiveUser(){
+    public static Users getActiveUser(){
         if(activeUser == null){
             activeUser = new Users();
         }
         return activeUser;
+    }
+
+    public static void addUserToList(Users user){
+        Users.userList.add(user);
+    }
+
+    public static ArrayList<Users> getUserList() {
+        return userList;
+    }
+
+    public static void setUserList(ArrayList<Users> userList) {
+        Users.userList = userList;
     }
 
     public Users(int user_id, String login, String password, String name, String surname, String mail, int phone_number, position_user position) {
@@ -39,7 +53,7 @@ public class Users implements DBTable {
         this.position = position;
     }
 
-    public int getUser_id() {
+    public int getUserId() {
         return user_id;
     }
 

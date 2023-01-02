@@ -94,7 +94,7 @@ public class UserRepository {
                     break;
             }
         }catch(SQLException e){
-            throw new RuntimeException(e);
+            return null;
         }
         return users;
     }
@@ -154,7 +154,7 @@ public class UserRepository {
                     "', mail = '" + user.getMail() +
                     "', phone_number = '" + user.getPhoneNumber() +
                     "', position = '" + user.getPosition().toString().toLowerCase() +
-                    "' WHERE user_id = " + user.getUser_id());
+                    "' WHERE user_id = " + user.getUserId());
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
