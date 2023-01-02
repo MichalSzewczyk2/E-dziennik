@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 05 Gru 2022, 16:36
+-- Czas generowania: 02 Sty 2023, 14:39
 -- Wersja serwera: 10.4.27-MariaDB
--- Wersja PHP: 8.1.12
+-- Wersja PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,6 +45,13 @@ CREATE TABLE `announcements` (
   `start` date NOT NULL,
   `end` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Zrzut danych tabeli `announcements`
+--
+
+INSERT INTO `announcements` (`announcement_id`, `title`, `message`, `start`, `end`) VALUES
+(1, 'Nowy rok!', 'Witamy wszystkich uczniów w nowym roku!', '2022-12-26', '2023-01-30');
 
 -- --------------------------------------------------------
 
@@ -201,6 +208,25 @@ CREATE TABLE `presence` (
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `school`
+--
+
+CREATE TABLE `school` (
+  `school_id` int(10) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Zrzut danych tabeli `school`
+--
+
+INSERT INTO `school` (`school_id`, `name`, `address`) VALUES
+(1, 'Szkoła podstawowa im \"KEN\"', 'ul. Szkolna Kraków');
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `subject`
 --
 
@@ -259,8 +285,17 @@ CREATE TABLE `users` (
   `surname` varchar(20) NOT NULL,
   `mail` varchar(20) DEFAULT NULL,
   `phone_number` int(9) DEFAULT NULL,
-  `position` enum('admin','sekretariat','nauczyciel','rodzic','uczeń') NOT NULL
+  `position` enum('admin','sekretariat','nauczyciel','rodzic','uczen') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Zrzut danych tabeli `users`
+--
+
+INSERT INTO `users` (`user_id`, `login`, `password`, `name`, `surname`, `mail`, `phone_number`, `position`) VALUES
+(1, 'admin', 'admin', 'Admin', 'Admin', NULL, NULL, 'admin'),
+(2, 'student', 'student', 'Jan', 'Kowalski', 'student@mail.com', 111222333, 'uczen'),
+(3, 'pnowak', '12345', 'Piotr', 'Nowak', 'PNowak@mail.com', 333222333, 'uczen');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -429,7 +464,7 @@ ALTER TABLE `subject`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ograniczenia dla zrzutów tabel
