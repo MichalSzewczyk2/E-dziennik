@@ -52,7 +52,7 @@
         </Pane>
     </left>
     <right>
-        <Pane prefHeight="640.0" prefWidth="280.0" BorderPane.alignment="CENTER">
+        <Pane prefHeight="640.0" prefWidth="577.0" BorderPane.alignment="CENTER">
          <children>
                 <ImageView fitHeight="366.0" fitWidth="400.0" layoutX="-43.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -68,29 +68,6 @@
         </Pane>
     </right>
     <center>
-        <Pane prefHeight="640.0" prefWidth="479.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button layoutX="100.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToPlan" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Plan zajęć" textFill="WHITE">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Button>
-            <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Oceny" textFill="WHITE">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Button>
-            <Button layoutX="100.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToIncominEvents" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Nadchodzące wydarzenia" textFill="WHITE">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Button>
-            <Button layoutX="100.0" layoutY="100.0" mnemonicParsing="false" onAction="#goToChat" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Czaty" textFill="WHITE">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Button>
-         </children>
-        </Pane>
+        <Pane prefHeight="640.0" prefWidth="479.0" BorderPane.alignment="CENTER" />
     </center>
 </BorderPane>
