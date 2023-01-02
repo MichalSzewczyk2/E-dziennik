@@ -94,7 +94,7 @@ public class UserRepository {
                     break;
             }
         }catch(SQLException e){
-            throw new RuntimeException(e);
+            return null;
         }
         return users;
     }

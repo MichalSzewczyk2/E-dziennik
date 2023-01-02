@@ -161,13 +161,12 @@ public class ChatsController {
 
     @FXML
     public void createChat() {
-        chatName.setOpacity(0);
-        chat.setOpacity(0);
-        input.setOpacity(0);
-        sendButton.setOpacity(0);
-
-        directButton.setOpacity(1);
-        groupButton.setOpacity(1);
+        Main m = new Main();
+        try{
+            m.changeScene("addChat.fxml",1280,720);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     public static String trimLastCharacters(String input, int i) {
@@ -186,21 +185,4 @@ public class ChatsController {
             throw new RuntimeException(e);
         }
     }
-
-    @FXML
-    public void createDirect(ActionEvent event) {
-        Main m = new Main();
-        try{
-            m.changeScene("addSingleChat.fxml",1280,720);
-        }catch (Exception e){
-            throw new RuntimeException(e);
-        }
-    }
-
-    @FXML
-    public void createGroup(ActionEvent event) {
-
-    }
-
-
 }

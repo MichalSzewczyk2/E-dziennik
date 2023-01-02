@@ -40,4 +40,26 @@ public class GroupNameRepository {
         return groupName;
     }
 
+    public int getMaxId(){
+        int id = 0;
+        try{
+            ResultSet rs = statement.executeQuery("SELECT MAX(chat_id) FROM group_name");
+            if(rs.next()){
+                id = rs.getInt("MAX(chat_id)");
+            }
+        } catch (SQLException e) {
+            return id;
+        }
+        return id;
+    }
+
+    public void insertChatName(String name){
+        int id = new GroupNameRepository().getMaxId() + 1;
+        try{
+            statement.executeUpdate("INSERT INTO `group_name` (`chat_id`, `name`) VALUES ('"+id+"', '"+name+"')");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

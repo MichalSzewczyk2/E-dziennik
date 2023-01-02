@@ -71,16 +71,6 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="directButton" layoutX="280.0" layoutY="250.0" mnemonicParsing="false" onAction="#createDirect" opacity="0.0" prefHeight="60.0" prefWidth="170.0" style="-fx-background-color: #2874A6;" text="Czat prywatny" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="groupButton" layoutX="480.0" layoutY="250.0" mnemonicParsing="false" onAction="#createGroup" opacity="0.0" prefHeight="60.0" prefWidth="170.0" style="-fx-background-color: #2874A6;" text="Czat grupowy" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
          </children>
       </Pane>
    </center>

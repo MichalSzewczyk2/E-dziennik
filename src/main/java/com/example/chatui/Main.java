@@ -20,7 +20,7 @@ public class Main extends Application {
         stage = primaryStage;
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login_page.fxml")));
-        stage.setTitle("apk");
+        stage.setTitle("E-dziennik");
         stage.setScene((new Scene(root, 600, 400)));
         stage.show();
     }

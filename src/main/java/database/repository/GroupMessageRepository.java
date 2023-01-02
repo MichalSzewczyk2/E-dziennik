@@ -52,4 +52,13 @@ public class GroupMessageRepository {
             e.printStackTrace();
         }
     }
+
+    public void addNewChat(int  userId, int chatId){
+        try{
+            statement.executeUpdate("INSERT INTO `group_message` (`chat_id`, `user_id`, `last_read`, `status`) " +
+                    "VALUES ('"+chatId+"', '"+userId+"', NULL, NULL);");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
