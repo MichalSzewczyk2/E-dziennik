@@ -6,6 +6,8 @@ public class Users implements DBTable {
 
     private static Users activeUser;
 
+    private static Users activeParent;
+
     private static ArrayList<Users> userList;
 
     private int user_id;
@@ -19,7 +21,7 @@ public class Users implements DBTable {
 
     public Users() {}
 
-    public void setActiveUser(Users user){
+    public static void setActiveUser(Users user){
         activeUser = user;
     }
 
@@ -28,6 +30,14 @@ public class Users implements DBTable {
             activeUser = new Users();
         }
         return activeUser;
+    }
+
+    public static Users getActiveParent() {
+        return activeParent;
+    }
+
+    public static void setActiveParent(Users activeParent) {
+        Users.activeParent = activeParent;
     }
 
     public static void addUserToList(Users user){

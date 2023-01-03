@@ -52,14 +52,14 @@
         </Pane>
     </left>
     <right>
-        <Pane prefHeight="640.0" prefWidth="577.0" BorderPane.alignment="CENTER">
+        <Pane prefHeight="640.0" prefWidth="375.0" BorderPane.alignment="CENTER">
          <children>
-                <ImageView fitHeight="366.0" fitWidth="400.0" layoutX="-43.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="366.0" fitWidth="400.0" layoutX="-5.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../../img/student.png" />
                     </image>
                 </ImageView>
-                <Label fx:id="sName" alignment="TOP_CENTER" contentDisplay="RIGHT" layoutY="353.0" onMouseClicked="#goToSchoolInfo" prefHeight="100.0" prefWidth="280.0" text="nazwa szkoły" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+                <Label fx:id="sName" alignment="TOP_CENTER" contentDisplay="RIGHT" layoutX="38.0" layoutY="378.0" onMouseClicked="#goToSchoolInfo" prefHeight="100.0" prefWidth="280.0" text="nazwa szkoły" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                     <font>
                         <Font size="30.0" />
                     </font>
@@ -68,6 +68,13 @@
         </Pane>
     </right>
     <center>
-        <Pane prefHeight="640.0" prefWidth="479.0" BorderPane.alignment="CENTER" />
+        <Pane prefHeight="640.0" prefWidth="331.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="30.0" layoutY="100.0" mnemonicParsing="false" onAction="#goToAddParent" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Dodaj rodzica" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+         </children></Pane>
     </center>
 </BorderPane>

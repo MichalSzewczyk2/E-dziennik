@@ -36,9 +36,19 @@ public class StartPage {
     @FXML
     private Label sName;
 
+    @FXML
+    private Label title;
+
 
     @FXML
     public void initialize(){
+
+        if(Users.getActiveParent() != null){
+            title.setText("Panel Rodzica");
+        }
+
+        System.out.println(Users.getActiveUser());
+
         list.setCellFactory(new Callback<ListView<Announcements>, ListCell<Announcements>>() {
             @Override
             public ListCell<Announcements> call(ListView<Announcements> announcementsListView) {

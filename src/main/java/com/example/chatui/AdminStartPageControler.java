@@ -84,26 +84,6 @@ public class AdminStartPageControler {
     }
 
     @FXML
-    void goToChat(ActionEvent event) {
-        Main m = new Main();
-        try{
-            m.changeScene("chats.fxml",1280,720);
-        }catch (IOException e){
-            throw new RuntimeException(e);
-        }
-    }
-
-    @FXML
-    void goToIncominEvents(ActionEvent event) {
-        Main m = new Main();
-        try{
-            m.changeScene("events.fxml",1280,720);
-        }catch (IOException e){
-            throw new RuntimeException(e);
-        }
-    }
-
-    @FXML
     void goToModifyUser(ActionEvent event) {
         Main m = new Main();
         try{
@@ -114,14 +94,15 @@ public class AdminStartPageControler {
     }
 
     @FXML
-    void goToPlan(ActionEvent event) {
+    public void goToAddParent(ActionEvent event){
         Main m = new Main();
         try{
-            m.changeScene("plans.fxml",1280,720);
-        }catch (IOException e){
+            m.changeScene("add_parent.fxml",1280,720);
+        }catch (Exception e){
             throw new RuntimeException(e);
         }
     }
+
 
     @FXML
     void seeNotification(MouseEvent event) {

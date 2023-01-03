@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 02 Sty 2023, 14:39
+-- Czas generowania: 03 Sty 2023, 22:47
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.2.0
 
@@ -120,9 +120,16 @@ CREATE TABLE `grade` (
 CREATE TABLE `group_message` (
   `chat_id` int(8) NOT NULL,
   `user_id` int(8) NOT NULL,
-  `last_read` int(8) NOT NULL,
+  `last_read` int(8) DEFAULT NULL,
   `status` enum('admin','użytkownik') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Zrzut danych tabeli `group_message`
+--
+
+INSERT INTO `group_message` (`chat_id`, `user_id`, `last_read`, `status`) VALUES
+(1, 2, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -134,6 +141,15 @@ CREATE TABLE `group_name` (
   `chat_id` int(8) NOT NULL,
   `name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Zrzut danych tabeli `group_name`
+--
+
+INSERT INTO `group_name` (`chat_id`, `name`) VALUES
+(1, 'Dziecko'),
+(2, 'Dziecko'),
+(3, 'Dziecko');
 
 -- --------------------------------------------------------
 
@@ -178,6 +194,13 @@ CREATE TABLE `messages` (
   `message` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Zrzut danych tabeli `messages`
+--
+
+INSERT INTO `messages` (`message_id`, `chat_id`, `user_id`, `date`, `message`) VALUES
+(1, 1, 2, '2023-01-03', 'Cześć');
+
 -- --------------------------------------------------------
 
 --
@@ -192,6 +215,24 @@ CREATE TABLE `notes` (
   `title` varchar(20) NOT NULL,
   `message` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `parent_children`
+--
+
+CREATE TABLE `parent_children` (
+  `parent_id` int(10) NOT NULL,
+  `child_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Zrzut danych tabeli `parent_children`
+--
+
+INSERT INTO `parent_children` (`parent_id`, `child_id`) VALUES
+(4, 2);
 
 -- --------------------------------------------------------
 
@@ -295,7 +336,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `login`, `password`, `name`, `surname`, `mail`, `phone_number`, `position`) VALUES
 (1, 'admin', 'admin', 'Admin', 'Admin', NULL, NULL, 'admin'),
 (2, 'student', 'student', 'Jan', 'Kowalski', 'student@mail.com', 111222333, 'uczen'),
-(3, 'pnowak', '12345', 'Piotr', 'Nowak', 'PNowak@mail.com', 333222333, 'uczen');
+(3, 'pnowak', '12345', 'Piotr', 'Nowak', 'PNowak@mail.com', 333222333, 'uczen'),
+(4, 'parent', 'parent', 'parent', 'parent', 'parent@mail.com', 444333222, 'rodzic');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -394,6 +436,13 @@ ALTER TABLE `notes`
   ADD KEY `student_id` (`student_id`);
 
 --
+-- Indeksy dla tabeli `parent_children`
+--
+ALTER TABLE `parent_children`
+  ADD PRIMARY KEY (`parent_id`,`child_id`),
+  ADD KEY `child_id` (`child_id`);
+
+--
 -- Indeksy dla tabeli `presence`
 --
 ALTER TABLE `presence`
@@ -464,7 +513,7 @@ ALTER TABLE `subject`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ograniczenia dla zrzutów tabel
@@ -537,6 +586,14 @@ ALTER TABLE `messages`
 ALTER TABLE `notes`
   ADD CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`teacher_id`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `notes_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Ograniczenia dla tabeli `parent_children`
+--
+ALTER TABLE `parent_children`
+  ADD CONSTRAINT `parent_children_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `users` (`user_id`),
+  ADD CONSTRAINT `parent_children_ibfk_2` FOREIGN KEY (`child_id`) REFERENCES `users` (`user_id`),
+  ADD CONSTRAINT `parent_children_ibfk_3` FOREIGN KEY (`parent_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Ograniczenia dla tabeli `presence`
