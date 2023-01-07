@@ -1,6 +1,7 @@
 package database.repository;
 
 import database.client.JDBCClient;
+import database.tables.Notes;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,6 +25,19 @@ public class NotesRepository {
             throw new RuntimeException(e);
         }
         return result;
+    }
+
+    public void addNote(Notes note){
+        try{
+            statement.executeUpdate("INSERT INTO `notes` (`note_id`, `student_id`, `teacher_id`, `date`, `title`, `message`) VALUES (NULL, '"+
+                    note.getStudent_id() + "', '"+
+                    note.getTeacher_id() + "', '"+
+                    note.getDate() + "', '"+
+                    note.getTitle() + "', '"+
+                    note.getMessage() +"');");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

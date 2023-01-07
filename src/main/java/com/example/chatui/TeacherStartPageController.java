@@ -30,4 +30,14 @@ public class TeacherStartPageController {
         }
     }
 
+    @FXML
+    public void goAddNote(){
+        Main m = new Main();
+        try{
+            m.changeScene("set_notes.fxml",1280,720);
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

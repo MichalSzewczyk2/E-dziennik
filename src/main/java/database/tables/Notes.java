@@ -2,7 +2,7 @@ package database.tables;
 
 import java.sql.Date;
 
-public class notes implements DBTable {
+public class Notes implements DBTable {
     private int note_id;
     private int student_id;
     private int teacher_id;
@@ -10,10 +10,10 @@ public class notes implements DBTable {
     private String title;
     private String message;
 
-    public notes() {
+    public Notes() {
     }
 
-    public notes(int note_id, int student_id, int teacher_id, Date date, String title, String message) {
+    public Notes(int note_id, int student_id, int teacher_id, Date date, String title, String message) {
         this.note_id = note_id;
         this.student_id = student_id;
         this.teacher_id = teacher_id;
