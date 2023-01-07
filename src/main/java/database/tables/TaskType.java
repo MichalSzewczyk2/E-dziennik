@@ -50,11 +50,6 @@ public class TaskType implements DBTable {
 
     @Override
     public String toString() {
-        return "task_type{" +
-                "task_type_id=" + task_type_id +
-                ", name='" + name + '\'' +
-                ", weight=" + weight +
-                ", teacher_id=" + teacher_id +
-                '}';
+        return name;
     }
 }

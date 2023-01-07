@@ -191,15 +191,6 @@ public class Users implements DBTable {
 
     @Override
     public String toString() {
-        return "User{" +
-                "user_id=" + user_id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", mail='" + mail + '\'' +
-                ", phone_number=" + phone_number +
-                ", position=" + position +
-                '}';
+        return name + " " + surname;
     }
 }

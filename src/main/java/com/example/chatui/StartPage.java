@@ -46,9 +46,6 @@ public class StartPage {
         if(Users.getActiveParent() != null){
             title.setText("Panel Rodzica");
         }
-
-        System.out.println(Users.getActiveUser());
-
         list.setCellFactory(new Callback<ListView<Announcements>, ListCell<Announcements>>() {
             @Override
             public ListCell<Announcements> call(ListView<Announcements> announcementsListView) {
@@ -72,8 +69,6 @@ public class StartPage {
         list.getItems().addAll(announcements);
         School school = new SchoolRepository().getSchool();
         sName.setText(school.getName());
-        // TODO dodać sprawdzeni czy są powiadomienia i wyświetlanie kropki
-        // TODO dodać sprawdzanie i wyświetlanie ogłoszeń przy załadowaniu strony
     }
 
     @FXML
@@ -90,7 +85,12 @@ public class StartPage {
 
     @FXML
     public void goToSchoolInfo(MouseEvent event){
-
+        Main m = new Main();
+        try{
+            m.changeScene("school_info.fxml",1280,720);
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

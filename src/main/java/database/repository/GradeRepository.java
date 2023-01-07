@@ -1,6 +1,7 @@
 package database.repository;
 
 import database.client.JDBCClient;
+import database.tables.Grade;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,5 +46,19 @@ public class GradeRepository {
         }
 
         return grades;
+    }
+
+    public void addGrade(Grade grade) {
+        try {
+            statement.executeUpdate("INSERT INTO `grade` (`grade_id`, `subject_id`, `task_type_id`, `student_id`, `grade`, `description`, `improved_grade_id`, `date`) VALUES (NULL, '"+
+                    grade.getSubjectId() + "', '"+
+                    grade.getTaskTypeId() + "', '"+
+                    grade.getStudentId() +"', '"+
+                    grade.getGrade() + "', '"+
+                    grade.getDescription() + "', NULL, '"+
+                    grade.getDate() + "');");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

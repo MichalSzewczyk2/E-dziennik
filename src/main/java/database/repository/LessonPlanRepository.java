@@ -39,4 +39,22 @@ public class LessonPlanRepository {
         return planList;
     }
 
+    public ArrayList<Integer> getSubjectIdByClassAndTeacher(int classId, int teacherId) {
+
+        ArrayList<Integer> subjectList = new ArrayList<>();
+
+        try {
+            ResultSet rs = statement.executeQuery("Select * FROM lesson_plan WHERE class_id = " +
+                    classId + " AND teacher_id = " + teacherId );
+            while (rs.next()) {
+                subjectList.add(rs.getInt("subject_id"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return subjectList;
+    }
+
+
 }

@@ -30,9 +30,6 @@ public class Subject implements DBTable {
 
     @Override
     public String toString() {
-        return "subject{" +
-                "subject_id=" + subject_id +
-                ", name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

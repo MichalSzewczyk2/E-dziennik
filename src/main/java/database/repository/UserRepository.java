@@ -7,6 +7,7 @@ import database.tables.Users;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class UserRepository {
 
@@ -29,32 +30,33 @@ public class UserRepository {
         Users users = new Users();
         try {
             ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE login = '" + username + "' AND password = '" + password + "'");
-            if (!rs.next()) return null;
+            if (rs.next()) {
 
-            users.setUser_id(rs.getInt("user_id"));
-            users.setLogin(rs.getString("login"));
-            users.setPassword(rs.getString("password"));
-            users.setName(rs.getString("name"));
-            users.setSurname(rs.getString("surname"));
-            users.setMail(rs.getString("mail"));
-            users.setPhoneNumber(rs.getInt("phone_number"));
-            String pos = rs.getString("position");
-            switch (pos) {
-                case "admin":
-                    users.setPosition(position_user.ADMIN);
-                    break;
-                case "sekretariat":
-                    users.setPosition(position_user.SEKRETARIAT);
-                    break;
-                case "nauczyciel":
-                    users.setPosition(position_user.NAUCZYCIEL);
-                    break;
-                case "rodzic":
-                    users.setPosition(position_user.RODZIC);
-                    break;
-                case "uczen":
-                    users.setPosition(position_user.UCZEN);
-                    break;
+                users.setUser_id(rs.getInt("user_id"));
+                users.setLogin(rs.getString("login"));
+                users.setPassword(rs.getString("password"));
+                users.setName(rs.getString("name"));
+                users.setSurname(rs.getString("surname"));
+                users.setMail(rs.getString("mail"));
+                users.setPhoneNumber(rs.getInt("phone_number"));
+                String pos = rs.getString("position");
+                switch (pos) {
+                    case "admin":
+                        users.setPosition(position_user.ADMIN);
+                        break;
+                    case "sekretariat":
+                        users.setPosition(position_user.SEKRETARIAT);
+                        break;
+                    case "nauczyciel":
+                        users.setPosition(position_user.NAUCZYCIEL);
+                        break;
+                    case "rodzic":
+                        users.setPosition(position_user.RODZIC);
+                        break;
+                    case "uczen":
+                        users.setPosition(position_user.UCZEN);
+                        break;
+                }
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -66,32 +68,33 @@ public class UserRepository {
         Users users = new Users();
         try {
             ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE name = '" + name + "' AND surname = '" + surname + "'");
-            if (!rs.next()) return null;
+            if (!rs.next()) {
 
-            users.setUser_id(rs.getInt("user_id"));
-            users.setLogin(rs.getString("login"));
-            users.setPassword(rs.getString("password"));
-            users.setName(rs.getString("name"));
-            users.setSurname(rs.getString("surname"));
-            users.setMail(rs.getString("mail"));
-            users.setPhoneNumber(rs.getInt("phone_number"));
-            String pos = rs.getString("position");
-            switch (pos) {
-                case "admin":
-                    users.setPosition(position_user.ADMIN);
-                    break;
-                case "sekretariat":
-                    users.setPosition(position_user.SEKRETARIAT);
-                    break;
-                case "nauczyciel":
-                    users.setPosition(position_user.NAUCZYCIEL);
-                    break;
-                case "rodzic":
-                    users.setPosition(position_user.RODZIC);
-                    break;
-                case "uczen":
-                    users.setPosition(position_user.UCZEN);
-                    break;
+                users.setUser_id(rs.getInt("user_id"));
+                users.setLogin(rs.getString("login"));
+                users.setPassword(rs.getString("password"));
+                users.setName(rs.getString("name"));
+                users.setSurname(rs.getString("surname"));
+                users.setMail(rs.getString("mail"));
+                users.setPhoneNumber(rs.getInt("phone_number"));
+                String pos = rs.getString("position");
+                switch (pos) {
+                    case "admin":
+                        users.setPosition(position_user.ADMIN);
+                        break;
+                    case "sekretariat":
+                        users.setPosition(position_user.SEKRETARIAT);
+                        break;
+                    case "nauczyciel":
+                        users.setPosition(position_user.NAUCZYCIEL);
+                        break;
+                    case "rodzic":
+                        users.setPosition(position_user.RODZIC);
+                        break;
+                    case "uczen":
+                        users.setPosition(position_user.UCZEN);
+                        break;
+                }
             }
         } catch (SQLException e) {
             return null;
@@ -103,48 +106,7 @@ public class UserRepository {
         Users users = new Users();
         try {
             ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE user_id = '" + id + "'");
-            if (!rs.next()) return null;
-
-            users.setUser_id(id);
-            users.setLogin(rs.getString("login"));
-            users.setPassword(rs.getString("password"));
-            users.setName(rs.getString("name"));
-            users.setSurname(rs.getString("surname"));
-            users.setMail(rs.getString("mail"));
-            users.setPhoneNumber(rs.getInt("phone_number"));
-            String pos = rs.getString("position");
-            switch (pos) {
-                case "admin":
-                    users.setPosition(position_user.ADMIN);
-                    break;
-                case "sekretariat":
-                    users.setPosition(position_user.SEKRETARIAT);
-                    break;
-                case "nauczyciel":
-                    users.setPosition(position_user.NAUCZYCIEL);
-                    break;
-                case "rodzic":
-                    users.setPosition(position_user.RODZIC);
-                    break;
-                case "uczen":
-                    users.setPosition(position_user.UCZEN);
-                    break;
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return users;
-    }
-
-    public Users getUserByParentId(int pId) {
-        Users users = new Users();
-        try {
-            ResultSet sr = statement.executeQuery("SELECT child_id FROM parent_children WHERE parent_id = " + pId);
-            int id;
-            if (sr.next()) {
-                id = sr.getInt("child_id");
-                ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE user_id = '" + id + "'");
-                if (!rs.next()) return null;
+            if (!rs.next()) {
 
                 users.setUser_id(id);
                 users.setLogin(rs.getString("login"));
@@ -174,11 +136,93 @@ public class UserRepository {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+        return users;
+    }
+
+    public Users getUserByParentId(int pId) {
+        Users users = new Users();
+        try {
+            ResultSet sr = statement.executeQuery("SELECT child_id FROM parent_children WHERE parent_id = " + pId);
+            int id;
+            if (sr.next()) {
+                id = sr.getInt("child_id");
+                ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE user_id = '" + id + "'");
+                if (!rs.next()) {
+
+                    users.setUser_id(id);
+                    users.setLogin(rs.getString("login"));
+                    users.setPassword(rs.getString("password"));
+                    users.setName(rs.getString("name"));
+                    users.setSurname(rs.getString("surname"));
+                    users.setMail(rs.getString("mail"));
+                    users.setPhoneNumber(rs.getInt("phone_number"));
+                    String pos = rs.getString("position");
+                    switch (pos) {
+                        case "admin":
+                            users.setPosition(position_user.ADMIN);
+                            break;
+                        case "sekretariat":
+                            users.setPosition(position_user.SEKRETARIAT);
+                            break;
+                        case "nauczyciel":
+                            users.setPosition(position_user.NAUCZYCIEL);
+                            break;
+                        case "rodzic":
+                            users.setPosition(position_user.RODZIC);
+                            break;
+                        case "uczen":
+                            users.setPosition(position_user.UCZEN);
+                            break;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
 
         }
         return users;
     }
 
+    public ArrayList<Users> getClassList(int id){
+        ArrayList<Users> list = new ArrayList<>();
+        try {
+            ResultSet rs = statement.executeQuery("SELECT * FROM users u RIGHT JOIN allocation a " +
+                    "ON u.user_id = a.student_id WHERE a.class_id = " + id );
+            while (rs.next()){
+                Users users = new Users();
+                users.setUser_id(rs.getInt("user_id"));
+                users.setLogin(rs.getString("login"));
+                users.setPassword(rs.getString("password"));
+                users.setName(rs.getString("name"));
+                users.setSurname(rs.getString("surname"));
+                users.setMail(rs.getString("mail"));
+                users.setPhoneNumber(rs.getInt("phone_number"));
+                String pos = rs.getString("position");
+                switch (pos) {
+                    case "admin":
+                        users.setPosition(position_user.ADMIN);
+                        break;
+                    case "sekretariat":
+                        users.setPosition(position_user.SEKRETARIAT);
+                        break;
+                    case "nauczyciel":
+                        users.setPosition(position_user.NAUCZYCIEL);
+                        break;
+                    case "rodzic":
+                        users.setPosition(position_user.RODZIC);
+                        break;
+                    case "uczen":
+                        users.setPosition(position_user.UCZEN);
+                        break;
+                }
+                list.add(users);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
     public boolean deleteUserByNameAndSurname(String name, String surname) {
         try {
             statement.executeUpdate("DELETE FROM users WHERE name = '" + name + "' AND surname = '" + surname + "'");
@@ -211,8 +255,8 @@ public class UserRepository {
                     user.getPassword() + "', '" +
                     user.getName() + "', '" +
                     user.getSurname() + "', '" +
-                    user.getMail() + "', " +
-                    user.getPhoneNumber() + ", '" +
+                    user.getMail() + "', '" +
+                    user.getPhoneNumber() + "', '" +
                     user.getPosition().toString().toLowerCase() + "')");
         } catch (SQLException e) {
             throw new RuntimeException(e);

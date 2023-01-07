@@ -2,7 +2,7 @@ package database.tables;
 
 import java.sql.Date;
 
-public class grade implements DBTable {
+public class Grade implements DBTable {
     private int grade_id;
     private int subject_id;
     private int task_type_id;
@@ -12,10 +12,10 @@ public class grade implements DBTable {
     private int improved_grade_id;
     private Date date;
 
-    public grade() {
+    public Grade() {
     }
 
-    public grade(int grade_id, int subject_id, int task_type_id, int student_id, int grade, String description, int improved_grade_id, Date date) {
+    public Grade(int grade_id, int subject_id, int task_type_id, int student_id, int grade, String description, int improved_grade_id, Date date) {
         this.grade_id = grade_id;
         this.subject_id = subject_id;
         this.task_type_id = task_type_id;
@@ -34,7 +34,7 @@ public class grade implements DBTable {
         this.grade_id = grade_id;
     }
 
-    public int getSubject_id() {
+    public int getSubjectId() {
         return subject_id;
     }
 
@@ -42,7 +42,7 @@ public class grade implements DBTable {
         this.subject_id = subject_id;
     }
 
-    public int getTask_type_id() {
+    public int getTaskTypeId() {
         return task_type_id;
     }
 
@@ -50,7 +50,7 @@ public class grade implements DBTable {
         this.task_type_id = task_type_id;
     }
 
-    public int getStudent_id() {
+    public int getStudentId() {
         return student_id;
     }
 

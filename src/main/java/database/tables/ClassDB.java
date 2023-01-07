@@ -50,11 +50,6 @@ public class ClassDB implements DBTable {
 
     @Override
     public String toString() {
-        return "class_DB{" +
-                "class_id=" + class_id +
-                ", supervisor_id=" + supervisor_id +
-                ", year=" + year +
-                ", name='" + name + '\'' +
-                '}';
+        return year + name;
     }
 }

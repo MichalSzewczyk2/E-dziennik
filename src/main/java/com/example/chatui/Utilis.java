@@ -19,6 +19,7 @@ public class Utilis {
                 m.changeScene("admin_start_page.fxml",1280,720);
             }
             else if(user.getPosition() == position_user.NAUCZYCIEL){
+                m.changeScene("teacher_start_page.fxml",1280,720);
 
             }
             else if(user.getPosition() == position_user.RODZIC){
