@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatui.teacher.ModifyScoreController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatui.teacher.ModifyNotesController">
     <top>
         <Pane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #2874A6;" BorderPane.alignment="CENTER">
             <children>
-                <Label alignment="CENTER" layoutX="880.0" prefHeight="80.0" prefWidth="400.0" text="Oceny" textFill="WHITE">
+                <Label alignment="CENTER" layoutX="811.0" prefHeight="80.0" prefWidth="469.0" text="Modyfikuj uwagi" textFill="WHITE">
                     <font>
                         <Font name="Bookman Old Style" size="48.0" />
                     </font>
@@ -54,64 +54,52 @@
     <right>
         <Pane prefHeight="200.0" prefWidth="420.0" BorderPane.alignment="CENTER">
             <children>
-                <Button layoutX="128.0" layoutY="470.0" mnemonicParsing="false" onAction="#modify" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #2874A6;" text="Modyfikuj" textFill="WHITE">
+                <Button layoutX="128.0" layoutY="370.0" mnemonicParsing="false" onAction="#modify" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #2874A6;" text="Modyfikuj" textFill="WHITE">
                     <font>
                         <Font size="21.0" />
                     </font>
                 </Button>
-                <Label alignment="CENTER" layoutX="20.0" layoutY="120.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Ocena" textFill="WHITE">
+                <Label alignment="CENTER" layoutX="20.0" layoutY="120.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Tytuł" textFill="WHITE">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="20.0" layoutY="170.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Typ oceny" textFill="WHITE">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Label>
-                <Label alignment="CENTER" layoutX="110.0" layoutY="50.0" prefHeight="45.0" prefWidth="202.0" text="Ocena">
+                <Label alignment="CENTER" layoutX="110.0" layoutY="50.0" prefHeight="45.0" prefWidth="202.0" text="Uwagi">
                     <font>
                         <Font size="30.0" />
                     </font>
                 </Label>
-                <TextField fx:id="mark" layoutX="128.0" layoutY="120.0" prefHeight="40.0" prefWidth="180.0" />
-                <ChoiceBox fx:id="type" layoutX="128.0" layoutY="170.0" prefHeight="40.0" prefWidth="180.0" />
-                <Label alignment="CENTER" layoutX="20.0" layoutY="220.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Przedmiot" textFill="WHITE">
+                <TextField fx:id="title" layoutX="128.0" layoutY="120.0" prefHeight="40.0" prefWidth="180.0" />
+                <Label alignment="CENTER" layoutX="20.0" layoutY="170.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Data" textFill="WHITE">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <ChoiceBox fx:id="subject" layoutX="128.0" layoutY="220.0" prefHeight="40.0" prefWidth="180.0" />
-                <Label alignment="CENTER" layoutX="20.0" layoutY="270.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Data" textFill="WHITE">
+                <DatePicker fx:id="date" layoutX="128.0" layoutY="170.0" prefHeight="40.0" prefWidth="180.0" />
+                <Label alignment="CENTER" layoutX="20.0" layoutY="220.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Opis" textFill="WHITE">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <DatePicker fx:id="date" layoutX="128.0" layoutY="270.0" prefHeight="40.0" prefWidth="180.0" />
-                <Label alignment="CENTER" layoutX="20.0" layoutY="320.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Opis" textFill="WHITE">
+                <TextArea fx:id="description" layoutX="128.0" layoutY="220.0" prefHeight="140.0" prefWidth="180.0" wrapText="true" />
+                <Button layoutX="128.0" layoutY="430.0" mnemonicParsing="false" onAction="#delete" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #2874A6;" text="Usuń" textFill="WHITE">
                     <font>
-                        <Font size="14.0" />
+                        <Font size="21.0" />
                     </font>
-                </Label>
-                <TextArea fx:id="description" layoutX="128.0" layoutY="320.0" prefHeight="140.0" prefWidth="180.0" wrapText="true" />
-            <Button layoutX="128.0" layoutY="530.0" mnemonicParsing="false" onAction="#delete" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #2874A6;" text="Usuń" textFill="WHITE">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Button>
+                </Button>
             </children>
         </Pane>
     </right>
     <center>
         <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" layoutX="120.0" layoutY="50.0" prefHeight="45.0" prefWidth="200.0" text="Oceny">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
-            <ListView fx:id="scoreList" layoutX="45.0" layoutY="100.0" prefHeight="400.0" prefWidth="350.0" />
-         </children>
+            <children>
+                <Label alignment="CENTER" layoutX="120.0" layoutY="50.0" prefHeight="45.0" prefWidth="200.0" text="Uwagi">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+                <ListView fx:id="notesList" layoutX="45.0" layoutY="100.0" prefHeight="400.0" prefWidth="350.0" />
+            </children>
         </Pane>
     </center>
 </BorderPane>

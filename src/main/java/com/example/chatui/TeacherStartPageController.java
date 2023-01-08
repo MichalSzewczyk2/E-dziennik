@@ -52,12 +52,12 @@ public class TeacherStartPageController {
 
     @FXML
     public void goModifyNote(){
-//        Main m = new Main();
-//        try{
-//            m.changeScene("set_notes.fxml",1280,720);
-//        }catch (IOException e){
-//            throw new RuntimeException(e);
-//        }
+        Main m = new Main();
+        try{
+            m.changeScene("modify_notes.fxml",1280,720);
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

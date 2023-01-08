@@ -75,7 +75,7 @@
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <TextArea fx:id="description" layoutX="128.0" layoutY="250.0" prefHeight="240.0" prefWidth="200.0" />
+                <TextArea fx:id="description" layoutX="128.0" layoutY="250.0" prefHeight="240.0" prefWidth="200.0" wrapText="true" />
             </children>
         </Pane>
     </right>

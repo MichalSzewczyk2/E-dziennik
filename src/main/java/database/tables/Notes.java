@@ -72,13 +72,6 @@ public class Notes implements DBTable {
 
     @Override
     public String toString() {
-        return "notes{" +
-                "note_id=" + note_id +
-                ", student_id=" + student_id +
-                ", teacher_id=" + teacher_id +
-                ", date=" + date +
-                ", title='" + title + '\'' +
-                ", message='" + message + '\'' +
-                '}';
+        return title;
     }
 }

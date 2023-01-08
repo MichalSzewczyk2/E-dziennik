@@ -147,9 +147,6 @@ public class ModifyScoreController {
 
     @FXML
     public void modify(){
-
-        System.out.println(subject.getValue());
-        System.out.println(type.getValue());
         Grade newGrade = new Grade();
         newGrade.setGradeId(grade.getGradeId());
         newGrade.setSubject_id(subject.getValue().getSubject_id());

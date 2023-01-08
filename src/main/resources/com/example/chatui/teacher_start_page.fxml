@@ -41,7 +41,7 @@
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" onAction="#goModifyNote" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Modyfikuj ocenę" textFill="WHITE">
+            <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" onAction="#goModifyNote" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Modyfikuj uwagę" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>

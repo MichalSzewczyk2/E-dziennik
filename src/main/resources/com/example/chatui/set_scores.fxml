@@ -87,7 +87,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextArea fx:id="description" layoutX="128.0" layoutY="350.0" prefHeight="140.0" prefWidth="180.0" />
+            <TextArea fx:id="description" layoutX="128.0" layoutY="350.0" prefHeight="140.0" prefWidth="180.0" wrapText="true" />
          </children>
       </Pane>
    </right>
