@@ -1,5 +1,7 @@
 package database.tables;
 
+import database.repository.SubjectRepository;
+
 import java.sql.Date;
 
 public class Grade implements DBTable {
@@ -26,11 +28,11 @@ public class Grade implements DBTable {
         this.date = date;
     }
 
-    public int getGrade_id() {
+    public int getGradeId() {
         return grade_id;
     }
 
-    public void setGrade_id(int grade_id) {
+    public void setGradeId(int grade_id) {
         this.grade_id = grade_id;
     }
 
@@ -92,15 +94,8 @@ public class Grade implements DBTable {
 
     @Override
     public String toString() {
-        return "grade{" +
-                "grade_id=" + grade_id +
-                ", subject_id=" + subject_id +
-                ", task_type_id=" + task_type_id +
-                ", student_id=" + student_id +
-                ", grade=" + grade +
-                ", description='" + description + '\'' +
-                ", improved_grade_id=" + improved_grade_id +
-                ", data=" + date +
-                '}';
+
+        Subject s = new SubjectRepository().getSubjectById(subject_id);
+        return "["+date+"] "+s.getName()+": "+grade;
     }
 }

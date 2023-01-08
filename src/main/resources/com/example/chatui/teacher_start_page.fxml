@@ -36,12 +36,29 @@
                   <Font size="21.0" />
                </font>
             </Button>
+            <Button layoutX="100.0" layoutY="300.0" mnemonicParsing="false" onAction="#goModifyScore" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Modyfikuj ocenę" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button layoutX="100.0" layoutY="400.0" mnemonicParsing="false" onAction="#goModifyNote" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Modyfikuj ocenę" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
          </children></Pane>
     </left>
     <right>
         <Pane prefHeight="640.0" prefWidth="440.0" BorderPane.alignment="CENTER" />
     </right>
     <center>
-        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="20.0" layoutY="100.0" mnemonicParsing="false" onAction="#goToChat" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Czat" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+         </children></Pane>
     </center>
 </BorderPane>

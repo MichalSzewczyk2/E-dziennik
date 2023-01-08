@@ -68,7 +68,7 @@ public class UserRepository {
         Users users = new Users();
         try {
             ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE name = '" + name + "' AND surname = '" + surname + "'");
-            if (!rs.next()) {
+            if (rs.next()) {
 
                 users.setUser_id(rs.getInt("user_id"));
                 users.setLogin(rs.getString("login"));
@@ -106,8 +106,7 @@ public class UserRepository {
         Users users = new Users();
         try {
             ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE user_id = '" + id + "'");
-            if (!rs.next()) {
-
+            if (rs.next()) {
                 users.setUser_id(id);
                 users.setLogin(rs.getString("login"));
                 users.setPassword(rs.getString("password"));

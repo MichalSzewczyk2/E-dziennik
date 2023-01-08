@@ -52,9 +52,9 @@ public class SetNotesController {
         ArrayList<ClassDB> classList = new ClassRepository().getClassListWithSupervisorId(Users.getActiveUser().getUserId());
         classChoice.getItems().addAll(classList);
         classChoice.setOnAction(this::setClass);
-        if(SetScoresController.getClassDB().getName() != null){
-            classIn.setText(SetScoresController.getClassDB().toString());
-            ArrayList<Users> sList = new UserRepository().getClassList(SetScoresController.getClassDB().getClass_id());
+        if(SetNotesController.getClassDB().getName() != null){
+            classIn.setText(SetNotesController.getClassDB().toString());
+            ArrayList<Users> sList = new UserRepository().getClassList(SetNotesController.getClassDB().getClass_id());
             studentList.getItems().addAll(sList);
         }
         studentList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Users>() {
@@ -66,13 +66,13 @@ public class SetNotesController {
     }
 
     public void setClass(ActionEvent actionEvent) {
-        SetScoresController.setClassDB(classChoice.getValue());
+        SetNotesController.setClassDB(classChoice.getValue());
         reload();
     }
 
     @FXML
     public void goBack(ActionEvent event) {
-        SetScoresController.getClassDB().setName(null);
+        SetNotesController.getClassDB().setName(null);
         new Utilis().goToStarPage();
     }
 

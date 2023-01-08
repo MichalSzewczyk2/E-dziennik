@@ -31,10 +31,40 @@ public class TeacherStartPageController {
     }
 
     @FXML
+    public void goModifyScore(){
+        Main m = new Main();
+        try{
+            m.changeScene("modify_score.fxml",1280,720);
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     public void goAddNote(){
         Main m = new Main();
         try{
             m.changeScene("set_notes.fxml",1280,720);
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void goModifyNote(){
+//        Main m = new Main();
+//        try{
+//            m.changeScene("set_notes.fxml",1280,720);
+//        }catch (IOException e){
+//            throw new RuntimeException(e);
+//        }
+    }
+
+    @FXML
+    public void goToChat(){
+        Main m = new Main();
+        try{
+            m.changeScene("chats.fxml",1280,720);
         }catch (IOException e){
             throw new RuntimeException(e);
         }
