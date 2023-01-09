@@ -90,8 +90,11 @@ public class AddTestController {
 
     @FXML
     public void addTest() {
-       int calId = new LessonCalendarRepository().addLessonCalendar(currentPlan.getPlan_id(), date.getValue());
-       new TaskRepository().addTask(calId, type.getValue().getTask_type_id(), description.getText());
+        int calId = new LessonCalendarRepository().addLessonCalendar(currentPlan.getPlan_id(), date.getValue());
+        new TaskRepository().addTask(calId, type.getValue().getTask_type_id(), description.getText());
+        Alert conf = new Alert(Alert.AlertType.INFORMATION);
+        conf.setHeaderText("Dodano aktywność!");
+        conf.showAndWait();
     }
 
     public String getDayFromNatural(String s) {
