@@ -34,11 +34,11 @@ public class EventsControler {
     private Event ev;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         list.getItems().addAll(getEvents());
         list.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Event>() {
             @Override
-            public void changed(ObservableValue<? extends Event> observableValue, Event events, Event t1){
+            public void changed(ObservableValue<? extends Event> observableValue, Event events, Event t1) {
                 ev = list.getSelectionModel().getSelectedItem();
             }
         });
@@ -56,26 +56,26 @@ public class EventsControler {
         descLabel.setText(ev.getDescription());
     }
 
-    private ArrayList<Event> getEvents(){
+    private ArrayList<Event> getEvents() {
         ArrayList<Event> s = new ArrayList<>();
 
         Users user = new Users().getActiveUser();
         ClassDB classDB = new ClassRepository().getClassByUser(user.getUserId());
+        if (classDB != null) {
+            ArrayList<LessonCalendar> lc = new LessonCalendarRepository().getLessonCalendarsByClassId(classDB.getClass_id(), LocalDate.now());
 
-
-        ArrayList<LessonCalendar> lc = new LessonCalendarRepository().getLessonCalendarsByClassId(classDB.getClass_id(), LocalDate.now());
-
-        for (LessonCalendar l: lc) {
-            Task task = new TaskRepository().getTaskByLessonId(l.getLesson_id());
-            TaskType taskType = new TaskTypeRepository().getTaskTypeById(task.getTask_type_id());
-            Event event = new Event();
-            event.setDate(l.getDate().toString());
-            event.setName(taskType.getName());
-            event.setDescription(task.getDescription());
-            event.setLesson_id(l.getLesson_id());
-            event.setPlan_id(l.getPlan_id());
-            event.setTask_type_id(taskType.getTask_type_id());
-            s.add(event);
+            for (LessonCalendar l : lc) {
+                Task task = new TaskRepository().getTaskByLessonId(l.getLesson_id());
+                TaskType taskType = new TaskTypeRepository().getTaskTypeById(task.getTask_type_id());
+                Event event = new Event();
+                event.setDate(l.getDate().toString());
+                event.setName(taskType.getName());
+                event.setDescription(task.getDescription());
+                event.setLesson_id(l.getLesson_id());
+                event.setPlan_id(l.getPlan_id());
+                event.setTask_type_id(taskType.getTask_type_id());
+                s.add(event);
+            }
         }
         return s;
     }

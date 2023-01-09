@@ -82,7 +82,12 @@ public class TeacherStartPageController {
 
     @FXML
     public void goToAddTest() {
-        //TODO:
+        Main m = new Main();
+        try{
+            m.changeScene("add_test.fxml",1280,720);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

@@ -1,5 +1,7 @@
 package database.tables;
 
+import database.repository.SubjectRepository;
+
 import java.sql.Time;
 
 public class LessonPlan implements DBTable {
@@ -134,15 +136,17 @@ public class LessonPlan implements DBTable {
 
     @Override
     public String toString() {
-        return "lesson_plan{" +
-                "plan_id=" + plan_id +
-                ", class_id=" + class_id +
-                ", subject_id=" + subject_id +
-                ", teacher_id=" + teacher_id +
-                ", classroom_id=" + classroom_id +
-                ", week_day=" + week_day +
-                ", start=" + start +
-                ", end=" + end +
-                '}';
+        Subject subject = new SubjectRepository().getSubjectById(subject_id);
+        return subject.getName() + "\n" +
+                trimLastCharacters(start.toString(), 3) + " - "
+                + trimLastCharacters(end.toString(), 3);
+    }
+
+    public static String trimLastCharacters(String input, int i) {
+        if (input.length() > i) {
+            return input.substring(0, input.length() - i);
+        } else {
+            return input;
+        }
     }
 }

@@ -3,6 +3,7 @@ package database.repository;
 import database.client.JDBCClient;
 import database.tables.LessonCalendar;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -29,6 +30,21 @@ public class LessonCalendarRepository {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public int addLessonCalendar(int planId, LocalDate date) {
+        int id = 0;
+        try {
+            ResultSet rs = statement.executeQuery("SELECT MAX(task_type_id) FROM task");
+            if (rs.next()) {
+                id = rs.getInt("MAX(task_type_id)") + 1;
+            }
+            statement.executeUpdate("INSERT INTO `lesson_calendar` (`lesson_id`, `plan_id`, `date`) VALUES ('"+
+                    id+"', '"+planId+"', '"+date+"');");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return id;
     }
 
 }

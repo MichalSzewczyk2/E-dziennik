@@ -26,4 +26,12 @@ public class TaskRepository {
         return task;
     }
 
+    public void addTask(int lessonId, int typeId, String description){
+        try{
+            statement.executeUpdate("INSERT INTO `task` (`task_type_id`, `lesson_id`, `description`) VALUES ('"+typeId+"', '"+lessonId+"', '"+description+"');");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
