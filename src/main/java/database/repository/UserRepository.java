@@ -1,5 +1,6 @@
 package database.repository;
 
+import com.example.chatui.Utilis;
 import database.client.JDBCClient;
 import database.tables.position_user;
 import database.tables.Users;
@@ -14,11 +15,13 @@ public class UserRepository {
     Statement statement = new JDBCClient().getStatement();
 
     public int checkIfUserWithCredentialsExists(String username, String password) {
+        String eUsername = Utilis.encrypt(username);
+        String ePassword = Utilis.encrypt(password);
         try {
-            ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE login = '" + username + "'");
+            ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE login = '" +eUsername + "'");
             if (rs.next()) {
-                if (rs.getString("login").equals(username) && rs.getString("password").equals(password)) return 0;
-                if (rs.getString("login").equals(username) && !rs.getString("password").equals(password)) return 1;
+                if (rs.getString("login").equals(eUsername) && rs.getString("password").equals(ePassword)) return 0;
+                if (rs.getString("login").equals(eUsername) && !rs.getString("password").equals(ePassword)) return 1;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -27,9 +30,11 @@ public class UserRepository {
     }
 
     public Users getUserByLoginAndPassword(String username, String password) {
+        String eUsername = Utilis.encrypt(username);
+        String ePassword = Utilis.encrypt(password);
         Users users = new Users();
         try {
-            ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE login = '" + username + "' AND password = '" + password + "'");
+            ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE login = '" + eUsername + "' AND password = '" + ePassword + "'");
             if (rs.next()) {
 
                 users.setUser_id(rs.getInt("user_id"));
@@ -61,13 +66,15 @@ public class UserRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return users;
+        return Users.decryptUser(users);
     }
 
     public Users getUserByNameAndSurname(String name, String surname) {
+        String eName = Utilis.encrypt(name);
+        String eSurname = Utilis.encrypt(surname);
         Users users = new Users();
         try {
-            ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE name = '" + name + "' AND surname = '" + surname + "'");
+            ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE name = '" + eName + "' AND surname = '" + eSurname + "'");
             if (rs.next()) {
 
                 users.setUser_id(rs.getInt("user_id"));
@@ -99,7 +106,7 @@ public class UserRepository {
         } catch (SQLException e) {
             return null;
         }
-        return users;
+        return Users.decryptUser(users);
     }
 
     public Users getUserById(int id) {
@@ -136,7 +143,7 @@ public class UserRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return users;
+        return Users.decryptUser(users);
     }
 
     public Users getUserByParentId(int pId) {
@@ -187,7 +194,7 @@ public class UserRepository {
                         users.setPosition(position_user.UCZEN);
                         break;
                 }
-                list.add(users);
+                list.add(Users.decryptUser(users));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -219,7 +226,8 @@ public class UserRepository {
         return true;
     }
 
-    public boolean addUser(Users user) {
+    public boolean addUser(Users users) {
+        Users user = Users.encryptUser(users);
         try {
             statement.executeUpdate("INSERT INTO `users` (`user_id`, `login`, `password`, `name`, `surname`, `mail`, `phone_number`, `position`) VALUES (NULL, '" +
                     user.getLogin() + "', '" +

@@ -38,5 +38,39 @@ public class Utilis {
 
     }
 
+    public static String encrypt(String plainText) {
+        StringBuilder encryptedText = new StringBuilder();
+        for (int i = 0; i < plainText.length(); i++) {
+            char c = plainText.charAt(i);
+            if (Character.isLetter(c)) {
+                if (Character.isUpperCase(c)) {
+                    encryptedText.append((char) ('A' + (c - 'A' + 5) % 26));
+                } else {
+                    encryptedText.append((char) ('a' + (c - 'a' + 5) % 26));
+                }
+            } else {
+                encryptedText.append(c);
+            }
+        }
+        return encryptedText.toString();
+    }
+
+    public static String decrypt(String encryptedText) {
+        StringBuilder plainText = new StringBuilder();
+        for (int i = 0; i < encryptedText.length(); i++) {
+            char c = encryptedText.charAt(i);
+            if (Character.isLetter(c)) {
+                if (Character.isUpperCase(c)) {
+                    plainText.append((char) ('A' + (c - 'A' - 5 + 26) % 26));
+                } else {
+                    plainText.append((char) ('a' + (c - 'a' - 5 + 26) % 26));
+                }
+            } else {
+                plainText.append(c);
+            }
+        }
+        return plainText.toString();
+    }
+
 
 }

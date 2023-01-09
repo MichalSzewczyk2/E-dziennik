@@ -1,5 +1,7 @@
 package database.tables;
 
+import com.example.chatui.Utilis;
+
 import java.util.ArrayList;
 
 public class Users implements DBTable {
@@ -187,6 +189,32 @@ public class Users implements DBTable {
                 this.position = position_user.UCZEN;
                 break;
         }
+    }
+
+    public static Users decryptUser(Users user) {
+        Users result = new Users();
+        result.setUser_id(user.getUserId());
+        result.setLogin(Utilis.decrypt(user.getLogin()));
+        result.setPassword(Utilis.decrypt(user.getPassword()));
+        result.setName(Utilis.decrypt(user.getName()));
+        result.setSurname(Utilis.decrypt(user.getSurname()));
+        result.setMail(Utilis.decrypt(user.getMail()));
+        result.setPhoneNumber(user.getPhoneNumber());
+        result.setPosition(user.getPosition());
+        return result;
+    }
+
+    public static Users encryptUser(Users user) {
+        Users result = new Users();
+        result.setUser_id(user.getUserId());
+        result.setLogin(Utilis.encrypt(user.getLogin()));
+        result.setPassword(Utilis.encrypt(user.getPassword()));
+        result.setName(Utilis.encrypt(user.getName()));
+        result.setSurname(Utilis.encrypt(user.getSurname()));
+        result.setMail(Utilis.encrypt(user.getMail()));
+        result.setPhoneNumber(user.getPhoneNumber());
+        result.setPosition(user.getPosition());
+        return result;
     }
 
     @Override
