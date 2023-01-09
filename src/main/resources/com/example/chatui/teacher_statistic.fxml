@@ -62,7 +62,12 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <ListView fx:id="subjectMeans" layoutX="50.0" layoutY="145.0" prefHeight="400.0" prefWidth="320.0" />
+            <ListView fx:id="subjectMeans" layoutX="50.0" layoutY="145.0" prefHeight="320.0" prefWidth="320.0" />
+            <Button layoutX="84.0" layoutY="478.0" mnemonicParsing="false" onAction="#saveGrades" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: #2874A6;" text="Eksportuj do pliku" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
          </children>
         </Pane>
     </right>

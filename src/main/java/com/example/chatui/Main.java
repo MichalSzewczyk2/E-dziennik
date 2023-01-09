@@ -15,6 +15,10 @@ public class Main extends Application {
     private static int x;
     private static int y;
 
+    public static Stage getStage(){
+        return stage;
+    }
+
     @Override
     public void start(Stage primaryStage) throws IOException {
         stage = primaryStage;

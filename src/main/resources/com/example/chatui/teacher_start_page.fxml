@@ -64,6 +64,11 @@
                   <Font size="21.0" />
                </font>
             </Button>
+            <Button layoutX="20.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToAddTest" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Dodaj test" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
          </children></Pane>
     </center>
 </BorderPane>

@@ -71,6 +71,21 @@ public class TeacherStartPageController {
     }
 
     @FXML
+    public void goToExportScores() {
+        Main m = new Main();
+        try{
+            m.changeScene("chats.fxml",1280,720);
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void goToAddTest() {
+        //TODO:
+    }
+
+    @FXML
     public void goToStatistic(){
         Main m = new Main();
         try{
