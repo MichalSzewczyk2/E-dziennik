@@ -6,6 +6,7 @@ import database.tables.Grade;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class GradeRepository {
@@ -32,6 +33,45 @@ public class GradeRepository {
         return subjects;
     }
 
+    public ArrayList<String> getStudentsSubjectsMeans(int studentId) {
+
+        ArrayList<String> subjects = new ArrayList<>();
+        DecimalFormat df = new DecimalFormat("0.00");
+
+        try {
+            ResultSet rs = statement.executeQuery("SELECT s.name, s.subject_id FROM grade g JOIN subject s ON g.subject_id = s.subject_id WHERE g.student_id = " + studentId
+                    + " GROUP BY g.subject_id");
+            while (rs.next()) {
+                double grades = new GradeRepository().getGradesMean(studentId, rs.getInt("s.subject_id"));
+                subjects.add(rs.getString("s.name") + ": " + df.format(grades));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return subjects;
+    }
+
+    public double getStudentMean(int studentId){
+        double mean = 0.0;
+        double count = 0.0;
+
+
+        try {
+            ResultSet rs = statement.executeQuery("SELECT s.name, s.subject_id FROM grade g JOIN subject s ON g.subject_id = s.subject_id WHERE g.student_id = " + studentId
+                    + " GROUP BY g.subject_id");
+            while (rs.next()) {
+                mean += new GradeRepository().getGradesMean(studentId, rs.getInt("s.subject_id"));
+                count++;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return mean / count;
+
+    }
+
     public String getGradesByUserAndSubject(int userId, int subjectId) {
         String grades;
         try {
@@ -46,6 +86,22 @@ public class GradeRepository {
         }
 
         return grades;
+    }
+
+    public double getGradesMean(int userId, int subjectId) {
+        double mean = 0;
+        double count = 0;
+        try {
+            ResultSet rs = statement.executeQuery("SELECT g.grade FROM grade g JOIN subject s ON g.subject_id = s.subject_id WHERE g.student_id = " + userId + " AND s.subject_id = " + subjectId);
+            while (rs.next()) {
+                mean += rs.getDouble("g.grade") ;
+                count++;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return mean / count;
     }
 
     public ArrayList<Grade> getGradesBySubjectandStudent(int subjectId, int userId) {

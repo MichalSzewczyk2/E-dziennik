@@ -70,4 +70,14 @@ public class TeacherStartPageController {
         }
     }
 
+    @FXML
+    public void goToStatistic(){
+        Main m = new Main();
+        try{
+            m.changeScene("teacher_statistic.fxml",1280,720);
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

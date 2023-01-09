@@ -59,6 +59,11 @@
                   <Font size="21.0" />
                </font>
             </Button>
+            <Button layoutX="20.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToStatistic" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #2874A6;" text="Statystyki" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
          </children></Pane>
     </center>
 </BorderPane>
