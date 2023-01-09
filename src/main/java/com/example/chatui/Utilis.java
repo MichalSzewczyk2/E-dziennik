@@ -25,6 +25,8 @@ public class Utilis {
             else if(user.getPosition() == position_user.RODZIC){
                 Users.setActiveParent(Users.getActiveUser());
                 Users.setActiveUser(new UserRepository().getUserByParentId(Users.getActiveParent().getUserId()));
+                System.out.println(Users.getActiveUser());
+                System.out.println(Users.getActiveParent());
                 m.changeScene("start_page.fxml",1280,720);
             }
             else if(user.getPosition() == position_user.SEKRETARIAT){

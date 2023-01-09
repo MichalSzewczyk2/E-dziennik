@@ -146,35 +146,7 @@ public class UserRepository {
             int id;
             if (sr.next()) {
                 id = sr.getInt("child_id");
-                ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE user_id = '" + id + "'");
-                if (!rs.next()) {
-
-                    users.setUser_id(id);
-                    users.setLogin(rs.getString("login"));
-                    users.setPassword(rs.getString("password"));
-                    users.setName(rs.getString("name"));
-                    users.setSurname(rs.getString("surname"));
-                    users.setMail(rs.getString("mail"));
-                    users.setPhoneNumber(rs.getInt("phone_number"));
-                    String pos = rs.getString("position");
-                    switch (pos) {
-                        case "admin":
-                            users.setPosition(position_user.ADMIN);
-                            break;
-                        case "sekretariat":
-                            users.setPosition(position_user.SEKRETARIAT);
-                            break;
-                        case "nauczyciel":
-                            users.setPosition(position_user.NAUCZYCIEL);
-                            break;
-                        case "rodzic":
-                            users.setPosition(position_user.RODZIC);
-                            break;
-                        case "uczen":
-                            users.setPosition(position_user.UCZEN);
-                            break;
-                    }
-                }
+                users = getUserById(id);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
