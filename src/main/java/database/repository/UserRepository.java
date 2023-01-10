@@ -202,15 +202,18 @@ public class UserRepository {
         return list;
     }
     public boolean deleteUserByNameAndSurname(String name, String surname) {
+        String eName = Utilis.encrypt(name);
+        String eSurname = Utilis.encrypt(surname);
         try {
-            statement.executeUpdate("DELETE FROM users WHERE name = '" + name + "' AND surname = '" + surname + "'");
+            statement.executeUpdate("DELETE FROM users WHERE name = '" + eName + "' AND surname = '" + eSurname + "'");
         } catch (SQLException e) {
             return false;
         }
         return true;
     }
 
-    public boolean updateUser(Users user) {
+    public boolean updateUser(Users users) {
+        Users user = Users.encryptUser(users);
         try {
             statement.executeUpdate("Update `users` SET name = '" + user.getName() +
                     "', surname =  '" + user.getSurname() +
