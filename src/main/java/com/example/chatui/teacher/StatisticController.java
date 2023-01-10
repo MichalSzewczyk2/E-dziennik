@@ -122,7 +122,7 @@ public class StatisticController {
             }
         }
         Alert conf = new Alert(Alert.AlertType.INFORMATION);
-            conf.setHeaderText("Zapisano pliku!");
+            conf.setHeaderText("Zapisano do pliku!");
         conf.showAndWait();
     }
 
