@@ -50,17 +50,12 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Button>
-            <Label alignment="CENTER" layoutX="196.0" layoutY="42.0" prefHeight="45.0" prefWidth="340.0" text="Wyszukaj użytkownika">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="96.0" layoutY="124.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Nazwa czatu" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="96.0" layoutY="100.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2874A6;" text="Nazwa czatu" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="chatName" layoutX="216.0" layoutY="124.0" prefHeight="40.0" prefWidth="300.0" />
+            <TextField fx:id="chatName" layoutX="216.0" layoutY="100.0" prefHeight="40.0" prefWidth="300.0" />
             <Button layoutX="776.0" layoutY="400.0" mnemonicParsing="false" onAction="#makeChat" prefHeight="52.0" prefWidth="248.0" style="-fx-background-color: #2874A6; -fx-border-color: black; -fx-border-image-width: 10;" text="Utwórz czat" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="23.0" />
