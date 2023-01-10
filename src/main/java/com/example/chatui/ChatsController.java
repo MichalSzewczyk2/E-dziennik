@@ -51,8 +51,12 @@ public class ChatsController {
 
     private Users user;
 
+    private static boolean flag = true;
+
     @FXML
     public void initialize(){
+        swapUsers();
+        flag = false;
         chatName.setOpacity(0);
         user = new Users().getActiveUser();
         groupName = GroupName.getGroupName();
@@ -110,6 +114,8 @@ public class ChatsController {
 
     @FXML
     public void goBack(ActionEvent event) {
+        flag = true;
+        swapUsers();
         GroupName.setGroupName(null);
         new Utilis().goToStarPage();
     }
@@ -183,6 +189,14 @@ public class ChatsController {
             m.changeScene("chats.fxml",1280,720);
         }catch (Exception e){
             throw new RuntimeException(e);
+        }
+    }
+
+    public void swapUsers(){
+        if(Users.getActiveParent() != null && flag){
+            Users u = Users.getActiveParent();
+            Users.setActiveParent(Users.getActiveUser());
+            Users.setActiveUser(u);
         }
     }
 }
