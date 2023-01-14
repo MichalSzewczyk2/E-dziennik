@@ -44,7 +44,7 @@ public class LessonPlanRepository {
         ArrayList<Integer> subjectList = new ArrayList<>();
 
         try {
-            ResultSet rs = statement.executeQuery("Select * FROM lesson_plan WHERE class_id = " +
+            ResultSet rs = statement.executeQuery("Select DISTINCT subject_id FROM lesson_plan WHERE class_id = " +
                     classId + " AND teacher_id = " + teacherId );
             while (rs.next()) {
                 subjectList.add(rs.getInt("subject_id"));

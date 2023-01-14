@@ -53,7 +53,7 @@ public class SetScoresController {
 
     @FXML
     public void initialize() {
-        ArrayList<ClassDB> classList = new ClassRepository().getClassListWithSupervisorId(Users.getActiveUser().getUserId());
+        ArrayList<ClassDB> classList = new ClassRepository().getAllClassList();
         classChoice.getItems().addAll(classList);
         classChoice.setOnAction(this::setClass);
         if(SetScoresController.getClassDB().getName() != null){

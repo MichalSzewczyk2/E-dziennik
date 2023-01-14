@@ -5,6 +5,7 @@ import database.repository.GroupNameRepository;
 import database.repository.UserRepository;
 import database.tables.Users;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -82,6 +83,11 @@ public class AddChat {
         for (Users u: Users.getUserList()){
             new GroupMessageRepository().addNewChat(u.getUserId(), chatId);
         }
+        Alert conf = new Alert(Alert.AlertType.INFORMATION);
+        conf.setHeaderText("Utworzono czat!");
+        conf.showAndWait();
+        reload();
+
     }
 
     private void reload(){
